@@ -19,14 +19,7 @@ interface Node extends d3.SimulationNodeDatum {
   articleSubtitle: string;
   url: string;
 }
-
-const rawVerificationMap: Record<string, string> = {
-  true: "Verdadero",
-  inaccurate: "Impreciso",
-  misleading: "Engañoso",
-  creative: "Se puso creativ@",
-  false: "Falso",
-};
+type Scale = "verification" | "source" | "time";
 
 const [DEFAULT_WIDTH, DEFAULT_HEIGHT] = [1200, 400];
 const RADIUS = 10;
@@ -35,13 +28,12 @@ const MIN_APP_WIDTH = 320;
 const APP_X_PADDING = 0;
 
 const parseTime = d3.utcParse("%Y.%m.%d");
-
+const formatTime = d3.utcFormat("%Y.%m.%d");
 const baseData = data.map((d) => ({
   ...d,
   x: DEFAULT_WIDTH / 2,
   y: DEFAULT_HEIGHT / 2,
 }));
-const dateExtent = [parseTime("2022.04.19")!, parseTime("2022.08.29")!];
 
 const colorScale = d3.schemeRdYlBu[5];
 const verificationValues = [
@@ -51,6 +43,19 @@ const verificationValues = [
   "inaccurate",
   "true",
 ];
+const sourceValues = [
+  "Instagram",
+  "TikTok",
+  "Twitter",
+  "YouTube",
+  "Facebook",
+  "leaflets",
+  "online media",
+  "television",
+  "electoral campaign",
+];
+const dateExtent = [parseTime("2022.04.19")!, parseTime("2022.08.29")!];
+
 const getColor = (v: string) => {
   const index = verificationValues.indexOf(v);
   return index > -1 ? colorScale[index] : "black";
@@ -64,27 +69,37 @@ const getAvatar = (v: string) => {
     : "";
 };
 
-const sourceValues = [
-  "Instagram",
-  "TikTok",
-  "Twitter",
-  "YouTube",
-  "Facebook",
-  "leaflets",
-  "webpage",
-  "online media",
-  "television",
-  "electoral campaign",
-];
-
-type Scale = "verification" | "source" | "time";
-
 const fieldAccessor = (d: Node, scale: Scale) =>
   (scale === "verification"
     ? d.verification
     : scale === "time"
     ? d.date
     : d.source?.medium ?? d.source?.platform) ?? "";
+
+const rawVerificationMap: Record<string, string> = {
+  true: "Verdadero",
+  inaccurate: "Impreciso",
+  misleading: "Engañoso",
+  creative: "Se puso creativ@",
+  false: "Falso",
+};
+const monthMap: Record<number, string> = {
+  5: "Mayo 2025",
+  6: "Junio 2025",
+  7: "Julio 2025",
+  8: "Agosto 2025",
+};
+const sourceMap: Record<string, string> = {
+  Instagram: "Instagram",
+  TikTok: "TikTok",
+  Twitter: "X",
+  YouTube: "YouTube",
+  Facebook: "Facebook",
+  leaflets: "Folletos",
+  "online media": "Contenido enlinea",
+  television: "TV",
+  "electoral campaign": "Franja electoral",
+};
 
 function App() {
   const [nodes, setNodes] = useState<Node[]>(baseData);
@@ -227,10 +242,6 @@ function App() {
       simulation.current?.stop();
 
       simulation.current = getSimulation();
-
-      console.log("useEffect");
-
-      // simulation.current.restart();
     }
 
     sizeRef.current = {
@@ -240,69 +251,62 @@ function App() {
   }, [dimensions.width, dimensions.height, getSimulation]);
 
   useEffect(() => {
-    console.log("useEffect 2");
-
     simulation.current?.stop();
     simulation.current = getSimulation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scale]);
 
   return (
     <>
-      <h1 style={{ maxWidth: "18ch" }}>
-        Verificaciones de Plebiscito de Salida 2022
-      </h1>
-      <div className="card">
-        <p>
-          Verificationes realizadas por{" "}
-          <a href="https://factchecking.cl/plebiscito-de-salida-2022/verificaciones/">
-            Factchecking.cl
-          </a>
-          .
-        </p>
-      </div>
+      <h1 className="title">Verificaciones de Plebiscito de Salida 2022</h1>
+
+      <p>
+        Verificationes realizadas por{" "}
+        <a
+          href="https://factchecking.cl/plebiscito-de-salida-2022/verificaciones/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Factchecking.cl
+        </a>
+        .
+      </p>
 
       <select value={scale} onChange={(e) => setScale(e.target.value as Scale)}>
-        <option value="verification">Verification</option>
-        <option value="source">Source</option>
-        <option value="time">Time</option>
+        <option value="verification">Verificaciones</option>
+        <option value="source">Fuente</option>
+        <option value="time">Fecha de publicación</option>
       </select>
 
       <div
-        style={{
-          width: `100%`,
-          height: `${dimensions.height}px`,
-          position: "relative",
-          marginTop: "100px",
-          overflow: "hidden",
-        }}
+        className="visualizationWrapper"
+        style={
+          {
+            "--height": `${dimensions.height}px`,
+          } as React.CSSProperties
+        }
       >
         {nodes.map((v) => (
           <Tooltip.Provider delayDuration={0} key={v.fact}>
             <Tooltip.Root>
               <Tooltip.Trigger asChild>
                 <div
-                  style={{
-                    position: "absolute",
-                    top: `${v.y ?? 0 - RADIUS}px`,
-                    left: `${v.x ?? 0 - RADIUS}px`,
-                    width: `${RADIUS * 2}px`,
-                    height: `${RADIUS * 2}px`,
-                    backgroundColor: getColor(v.verification),
-                    borderRadius: "50%",
-                  }}
+                  className="node"
+                  style={
+                    {
+                      "--y": `${v.y ?? 0 - RADIUS}px`,
+                      "--x": `${v.x ?? 0 - RADIUS}px`,
+                      "--size": `${RADIUS * 2}px`,
+                      "--fill": getColor(v.verification),
+                    } as React.CSSProperties
+                  }
                 />
               </Tooltip.Trigger>
               <Tooltip.Portal>
                 <Tooltip.Content
-                  style={{
-                    width: "500px",
-                    backgroundColor: "#111",
-                    padding: "10px",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
+                  className="tooltipContent"
                   sideOffset={10}
-                  side="right"
+                  side="bottom"
                 >
                   <blockquote>
                     <p>{v.fact}</p>
@@ -346,34 +350,25 @@ function App() {
           verificationValues.map((v) => (
             <p
               key={"veri-" + v}
-              style={{
-                backgroundColor: getColor(v),
-                color: "black",
-                display: "inline-flex",
-                alignItems: "center",
-                alignSelf: "end",
-                marginTop: "-20px",
-                padding: "3px",
-                borderRadius: "5px",
-                fontSize: "12px",
-                position: "absolute",
-                top:
-                  orientation === "horizontal"
-                    ? `${20}px`
-                    : `${getPosition(v)}px`,
-                left:
-                  orientation === "horizontal"
-                    ? `${getPosition(v)}px`
-                    : `${20}px`,
-                transform:
-                  orientation === "horizontal" ? `translateX(-50%)` : "",
-              }}
+              className="verificationTick"
+              style={
+                {
+                  "--fill": getColor(v),
+                  "--y":
+                    orientation === "horizontal"
+                      ? `${20}px`
+                      : `${getPosition(v)}px`,
+                  "--x":
+                    orientation === "horizontal"
+                      ? `${getPosition(v)}px`
+                      : `${20}px`,
+                  "--transform":
+                    orientation === "horizontal" ? `translateX(-50%)` : "",
+                } as React.CSSProperties
+              }
             >
               {rawVerificationMap[v]}
-              <img
-                style={{ width: "30px", height: "30px" }}
-                src={getAvatar(v)}
-              ></img>
+              <img className="avatar" src={getAvatar(v)} />
             </p>
           ))}
 
@@ -381,31 +376,84 @@ function App() {
           sourceValues.map((v) => (
             <p
               key={"source-" + v}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                alignSelf: "end",
-                marginTop: "-20px",
-                padding: "3px",
-                borderRadius: "5px",
-                fontSize: "12px",
-                position: "absolute",
-                top:
-                  orientation === "horizontal"
-                    ? `${20}px`
-                    : `${getPosition(v)}px`,
-                left:
-                  orientation === "horizontal"
-                    ? `${getPosition(v)}px`
-                    : `${20}px`,
-                transform:
-                  orientation === "horizontal" ? `translateX(-50%)` : "",
-              }}
+              className="sourceTick"
+              style={
+                {
+                  "--y":
+                    orientation === "horizontal"
+                      ? `${20}px`
+                      : `${getPosition(v)}px`,
+                  "--x":
+                    orientation === "horizontal"
+                      ? `${getPosition(v) + 5}px`
+                      : `${20}px`,
+                  "--transform":
+                    orientation === "horizontal" ? `translateX(-50%)` : "",
+                } as React.CSSProperties
+              }
             >
-              {v}
+              {sourceMap[v]}
             </p>
           ))}
+
+        {scale === "time" &&
+          timeScale.ticks(5).map((v) => (
+            <p
+              key={"time-" + v}
+              className="timeTick"
+              style={
+                {
+                  "--y":
+                    orientation === "horizontal"
+                      ? `${20}px`
+                      : `${getPosition(formatTime(v))}px`,
+                  "--x":
+                    orientation === "horizontal"
+                      ? `${getPosition(formatTime(v)) + 5}px`
+                      : `${20}px`,
+                  "--transform":
+                    orientation === "horizontal" ? `translateX(-50%)` : "",
+                } as React.CSSProperties
+              }
+            >
+              {monthMap[v.getMonth() + 1]}
+            </p>
+          ))}
+        {scale === "time" && (
+          <p
+            key={"time-unk"}
+            className="timeTick"
+            style={
+              {
+                "--y":
+                  orientation === "horizontal"
+                    ? `${20}px`
+                    : `${getPosition("")}px`,
+                "--x":
+                  orientation === "horizontal"
+                    ? `${getPosition("") + 5}px`
+                    : `${20}px`,
+                "--transform":
+                  orientation === "horizontal" ? `translateX(-50%)` : "",
+              } as React.CSSProperties
+            }
+          >
+            Fecha desconocida
+          </p>
+        )}
       </div>
+
+      <p>
+        Creado por{" "}
+        <a
+          href="https://github.com/fdoflorenzano"
+          rel="noreferrer"
+          target="_blank"
+        >
+          @fdoflorenzano
+        </a>
+        .
+      </p>
     </>
   );
 }

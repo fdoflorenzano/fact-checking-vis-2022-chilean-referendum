@@ -1,30 +1,87 @@
 #root {
   max-width: 1280px;
-  /* margin: 0 auto; */
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  max-width: 18ch;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.visualizationWrapper {
+  width: 100%;
+  height: var(--height);
+  position: relative;
+  margin-top: 100px;
+  overflow: hidden;
 }
 
-.card {
-  padding: 2em 0;
+.node {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--fill);
+  border-radius: 50%;
+  border: #111 solid 1px;
 }
 
-.read-the-docs {
-  color: #888;
+.tooltipContent {
+  width: 500px;
+  border: #111 solid 1px;
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.verificationTick {
+  background-color: var(--fill);
+  color: black;
+  display: inline-flex;
+  align-items: center;
+  align-self: end;
+  margin-top: -20px;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 12px;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: var(--transform);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+}
+
+.sourceTick {
+  display: inline-flex;
+  align-items: center;
+  align-self: end;
+  margin-top: -20px;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 12px;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: var(--transform);
+}
+
+.timeTick {
+  display: inline-flex;
+  align-items: center;
+  align-self: end;
+  margin-top: -20px;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 12px;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: var(--transform);
 }
