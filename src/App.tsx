@@ -5,6 +5,12 @@ import { useWindowSize } from "@uidotdev/usehooks";
 
 import data from "../data/extended-facts-verified.json";
 
+import v1 from "./assets/v1.svg";
+import v2 from "./assets/v2.svg";
+import v3 from "./assets/v3.svg";
+import v4 from "./assets/v4.svg";
+import v5 from "./assets/v5.svg";
+
 import "./App.css";
 
 interface Node extends d3.SimulationNodeDatum {
@@ -18,24 +24,34 @@ interface Node extends d3.SimulationNodeDatum {
   verificationRaw: string;
   articleSubtitle: string;
   url: string;
+  categoryRaw: string;
 }
 type Scale = "verification" | "source" | "time";
 
-const [DEFAULT_WIDTH, DEFAULT_HEIGHT] = [1200, 400];
-const RADIUS = 10;
-const MAX_APP_WIDTH = 1280;
+const [DEFAULT_WIDTH, DEFAULT_HEIGHT] = [1200, 350];
+const RADIUS = 12;
+const MAX_APP_WIDTH = 1000;
 const MIN_APP_WIDTH = 320;
 const APP_X_PADDING = 0;
 
 const parseTime = d3.utcParse("%Y.%m.%d");
 const formatTime = d3.utcFormat("%Y.%m.%d");
+const readableTime = d3.utcFormat("%d/%m/%Y");
 const baseData = data.map((d) => ({
   ...d,
   x: DEFAULT_WIDTH / 2,
   y: DEFAULT_HEIGHT / 2,
 }));
 
-const colorScale = d3.schemeRdYlBu[5];
+// const colorInter1 = d3.interpolateLab("#e68fc3", "#7386e8");
+// const colorInter2 = d3.interpolateLab("#7386e8", "#53c3ac");
+// const colorScale = [
+//   colorInter1(0),
+//   colorInter1(0.5),
+//   colorInter1(1),
+//   colorInter2(0.5),
+//   colorInter2(1),
+// ];
 const verificationValues = [
   "false",
   "creative",
@@ -56,17 +72,18 @@ const sourceValues = [
 ];
 const dateExtent = [parseTime("2022.04.19")!, parseTime("2022.08.29")!];
 
-const getColor = (v: string) => {
-  const index = verificationValues.indexOf(v);
-  return index > -1 ? colorScale[index] : "black";
-};
+// const getColor = (v: string) => {
+//   const index = verificationValues.indexOf(v);
+//   return index > -1 ? colorScale[index] : "black";
+// };
 const getAvatar = (v: string) => {
-  const index = verificationValues.indexOf(v);
-  return index > -1
-    ? `https://factchecking.cl/wp-content/themes/gauge-child/lib/images/faces/${
-        5 - index
-      }.png`
-    : "";
+  return {
+    false: v5,
+    creative: v4,
+    misleading: v3,
+    inaccurate: v2,
+    true: v1,
+  }[v];
 };
 
 const fieldAccessor = (d: Node, scale: Scale) =>
@@ -210,7 +227,7 @@ function App() {
                 .forceY((d: Node) => getPosition(fieldAccessor(d, scale)))
                 .strength(0.09)
         )
-        .force("collision", d3.forceCollide(RADIUS * 1.5))
+        .force("collision", d3.forceCollide(RADIUS * 1.1))
         .on("tick", () => {
           if ((simulation.current?.alpha() ?? 1) < 0.01) {
             simulation.current?.stop();
@@ -257,8 +274,47 @@ function App() {
   }, [scale]);
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <h1 className="title">Verificaciones de Plebiscito de Salida 2022</h1>
+
+      <button
+        style={{
+          position: "fixed",
+          bottom: "10px",
+          right: "10px",
+          width: "40px",
+          height: "40px",
+          background: "var(--primary-color)",
+          padding: "0",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34H20H18ZM21.4142 5.58579C20.6332 4.80474 19.3668 4.80474 18.5858 5.58579L5.85786 18.3137C5.07682 19.0948 5.07682 20.3611 5.85786 21.1421C6.63891 21.9232 7.90524 21.9232 8.68629 21.1421L20 9.82843L31.3137 21.1421C32.0948 21.9232 33.3611 21.9232 34.1421 21.1421C34.9232 20.3611 34.9232 19.0948 34.1421 18.3137L21.4142 5.58579ZM20 34H22V7H20H18V34H20Z"
+            fill="white"
+          />
+        </svg>
+      </button>
 
       <p>
         Verificationes realizadas por{" "}
@@ -269,14 +325,16 @@ function App() {
         >
           Factchecking.cl
         </a>
-        .
+        . Organiza por:{" "}
+        <select
+          value={scale}
+          onChange={(e) => setScale(e.target.value as Scale)}
+        >
+          <option value="verification">Verificaciones</option>
+          <option value="source">Fuente</option>
+          <option value="time">Fecha de publicación</option>
+        </select>
       </p>
-
-      <select value={scale} onChange={(e) => setScale(e.target.value as Scale)}>
-        <option value="verification">Verificaciones</option>
-        <option value="source">Fuente</option>
-        <option value="time">Fecha de publicación</option>
-      </select>
 
       <div
         className="visualizationWrapper"
@@ -286,7 +344,7 @@ function App() {
           } as React.CSSProperties
         }
       >
-        {nodes.map((v) => (
+        {nodes.map((v, index) => (
           <Tooltip.Provider delayDuration={0} key={v.fact}>
             <Tooltip.Root>
               <Tooltip.Trigger asChild>
@@ -297,48 +355,61 @@ function App() {
                       "--y": `${v.y ?? 0 - RADIUS}px`,
                       "--x": `${v.x ?? 0 - RADIUS}px`,
                       "--size": `${RADIUS * 2}px`,
-                      "--fill": getColor(v.verification),
                     } as React.CSSProperties
                   }
-                />
+                  onClick={() => {
+                    const div = document.getElementById(`fact-${index}`);
+                    window.scrollTo({
+                      top: div?.getBoundingClientRect().y,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  <img
+                    src={getAvatar(v.verification)}
+                    width={RADIUS * 2}
+                    height={RADIUS * 2}
+                  />
+                </div>
               </Tooltip.Trigger>
               <Tooltip.Portal>
                 <Tooltip.Content
                   className="tooltipContent"
                   sideOffset={10}
-                  side="bottom"
+                  side="top"
                 >
-                  <blockquote>
-                    <p>{v.fact}</p>
-                  </blockquote>
-
-                  <p
-                    style={{
-                      backgroundColor: getColor(v.verification),
-                      color: "black",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      alignSelf: "end",
-                      marginTop: "-20px",
-                      padding: "3px",
-                      borderRadius: "5px",
-                      fontSize: "12px",
-                    }}
-                  >
-                    <strong>{v.verificationRaw}</strong>
-                    <img
-                      style={{ width: "30px", height: "30px" }}
-                      src={getAvatar(v.verification)}
-                    ></img>
+                  <p>
+                    Afirmación #{index + 1} sobre{" "}
+                    <strong style={{ color: "var(--primary-color)" }}>
+                      {" "}
+                      {v.categoryRaw}
+                    </strong>{" "}
+                    <span
+                      style={{
+                        color: "black",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        alignSelf: "end",
+                        padding: "3px",
+                        borderRadius: "3px",
+                        fontSize: "12px",
+                        marginLeft: "5px",
+                      }}
+                    >
+                      <strong>{v.verificationRaw}</strong>
+                      <img
+                        style={{ width: "25px", height: "25px" }}
+                        src={getAvatar(v.verification)}
+                      ></img>
+                    </span>
                   </p>
 
-                  <p>{v.articleSubtitle}</p>
-                  <p>{v.date == null ? "Fecha desconocida" : v.date}</p>
                   <p>
-                    {v.source?.medium ?? v.source?.platform} -
-                    <a href={v.url} rel="noreferrer" target="_blank">
-                      Fuente
-                    </a>
+                    {sourceMap[(v.source?.medium ?? v.source?.platform)!]} (
+                    {v.date == null ? "fecha desconocida" : v.date})
+                  </p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Haz clic para revisar verificación.
                   </p>
                 </Tooltip.Content>
               </Tooltip.Portal>
@@ -353,7 +424,6 @@ function App() {
               className="verificationTick"
               style={
                 {
-                  "--fill": getColor(v),
                   "--y":
                     orientation === "horizontal"
                       ? `${20}px`
@@ -443,6 +513,87 @@ function App() {
         )}
       </div>
 
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+          maxWidth: "100%",
+          gap: "50px",
+        }}
+      >
+        {nodes.map((n, i) => (
+          <div
+            style={{
+              marginBottom: "70px",
+              minWidth: "350px",
+              flex: "1",
+              display: "flex",
+              flexDirection: "column",
+              border: "1px solid gray",
+              padding: "10px",
+              borderRadius: "3px",
+              borderColor: "var(--primary-color)",
+            }}
+            id={`fact-${i}`}
+          >
+            <p style={{ fontWeight: "bold" }}>
+              Afirmación #{i + 1} sobre{" "}
+              <span style={{ color: "var(--primary-color)" }}>
+                {" "}
+                {n.categoryRaw}
+              </span>
+            </p>
+
+            <div style={{ position: "relative" }}>
+              <blockquote
+                style={{
+                  marginLeft: "0",
+                  marginBottom: "30px",
+                  fontStyle: "italic",
+                }}
+              >
+                {n.fact}
+              </blockquote>
+              <p
+                style={{
+                  position: "absolute",
+                  bottom: "0",
+                  right: "0",
+                  display: "flex",
+                  alignItems: "center",
+                  color: "black",
+                  padding: "3px",
+                  borderRadius: "5px",
+                  fontSize: "12px",
+                  margin: "0",
+                }}
+              >
+                <strong>{n.verificationRaw}</strong>
+                <img
+                  style={{ width: "25px", height: "25px" }}
+                  src={getAvatar(n.verification)}
+                ></img>
+              </p>
+            </div>
+
+            <p>
+              {sourceMap[(n.source?.medium ?? n.source?.platform)!]} (
+              {n.date == null
+                ? "fecha desconocida"
+                : readableTime(parseTime(n.date!)!)}
+              )
+            </p>
+            <p>
+              {n.articleSubtitle} Para más detalles, revisa el{" "}
+              <a href={n.url} rel="noreferrer" target="_blank">
+                artículo de verificación.
+              </a>
+            </p>
+          </div>
+        ))}
+      </div>
+
       <p>
         Creado por{" "}
         <a
@@ -454,7 +605,7 @@ function App() {
         </a>
         .
       </p>
-    </>
+    </div>
   );
 }
 
