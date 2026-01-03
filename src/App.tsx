@@ -18,12 +18,7 @@ const readableTime = d3.utcFormat("%d/%m/%Y");
 const baseData = data.map((d, index) => ({
   ...d,
   index,
-  preference:
-    Math.random() > 0.4
-      ? "approve"
-      : Math.random() > 0.1
-      ? "reject"
-      : "neutral",
+  preference: d.preference,
 }));
 
 const verificationValues = [
@@ -77,7 +72,7 @@ const sourceExplainers: Record<string, string> = {
     "Afirmación analizada se transmitió originalmente a través de la franja electoral que se emitió acercándose al plebiscito.",
 };
 
-const preferenceValues = ["approve", "reject", "neutral"];
+const preferenceValues = ["reject", "approve", "neutral"];
 const preferenceExplainers: Record<string, string> = {
   approve:
     "La afirmación se comparte como apoyo a la opción 'Apruebo' del plebiscito.",
@@ -180,6 +175,7 @@ function App() {
               behavior: "smooth",
             });
           }
+          setLastClick(null);
         }}
       >
         <svg

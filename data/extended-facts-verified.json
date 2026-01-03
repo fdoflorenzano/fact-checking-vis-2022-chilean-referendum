@@ -14,7 +14,8 @@
     "source": {
       "platform": "Instagram",
       "author": "@karinaqkm"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“YO VOTARÉ APRUEBO EN EL PLEBISCITO DE SALIDA DEL 4 DE SEPTIEMBRE DE 2022 ¿POR QUÉ? Porque establece por primera vez a nivel constitucional de manera explícita que las personas con discapacidad son titulares de derechos establecidos en la constitución y tratados internacionales”, usuario en Twitter @tom_ratm...\"",
@@ -31,7 +32,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@tom_ratm_237"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Se supone que la nueva constitución es inclusiva sin embargo en la realidad es todo lo contrario al considerarnos a los discapacitados como \"sujetos de protección\" dejándonos como ciudadanos de 2 categoría no era esto lo que soñaba al votar apruebo y así mejorar calidad de vida”, Francisco Solari en Twitte...\"",
@@ -48,7 +50,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@fsolari22"
-    }
+    },
+    "preference": "neutral"
   },
   {
     "fact": "\"Alegre rebeldía del #Apruebo en Viña del Mar\", ex diputado comunista, Hugo Gutiérrez, a través de su cuenta de Twitter.",
@@ -65,7 +68,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@Hugo_Gutierrez_"
-    }
+    },
+    "preference": "neutral"
   },
   {
     "fact": "“Mueren los derechos de agua apenas se apruebe la nueva Constitución. Dejan de ser transferibles, no se podrán comprar ni vender”, video de Asociación Canal Maule.",
@@ -82,7 +86,8 @@
     "source": {
       "medium": "online media",
       "organization": "Asociación Canal Maule"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Artículo 49. RECONOCIMIENTO DEL TRABAJO DOMÉSTICO Y DE CUIDADOS\n\nEl trabajo doméstico y de cuidado aporta el 21,8 del PIB. El 67% de este trabajo lo realizan mujeres, sin descanso ni derechos laborales. Con la nueva Constitución, los trabajos domésticos y de cuidados ser...\"",
@@ -99,7 +104,8 @@
     "source": {
       "medium": "leaflets",
       "organization": "Coordinadora Feminista 8M"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Quieren que solo el Estado pueda tener programas de reinserción. Dejando fuera a las fundaciones”, franja televisiva del Rechazo.",
@@ -116,7 +122,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“La actual Constitución del 80 en ninguna parte menciona la discapacidad, accesibilidad, inclusión o diversidad. En cambio, en la Nueva Constitución, en sus principios detalla que Chile es un Estado plurinacional, intercultural, regional y su democracia es inclusiva y paritaria”,",
@@ -133,7 +140,8 @@
     "source": {
       "platform": "TikTok",
       "author": "@tenientedance"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Si usted se pregunta qué pasará con sus ahorros actuales, nada. Nadie los tocará”, Maitén Montenegro franja del Apruebo x Chile.",
@@ -149,7 +157,8 @@
     "authors": ["Paula Witt", "Benjamín Delgado"],
     "source": {
       "platform": "Instagram"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Primero que nada, el agua a nadie le ha faltado. Chile es uno de los países que tiene más agua potable a nivel mundial (...). Los agricultores queremos seguridad a la hora de sembrar. Porque mañana puede salir este grupito que le pone color sobre la sequedad del agua; y oye no podi sembrar porque el agua está ...\"",
@@ -166,7 +175,8 @@
     "source": {
       "medium": "television",
       "show": "Sin Filtros"
-    }
+    },
+    "preference": "neutral"
   },
   {
     "fact": "\"La educación sexual integral ha tenido terribles resultados en todos los países en los que ha sido implementada\", Lucas Gonzalez, del canal de YouTube DESapruebo.",
@@ -188,7 +198,8 @@
     "source": {
       "platform": "YouTube",
       "author": "DESapruebo"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Si hay algún robo u homicidio eso se va a juzgar en Tribunales Penales como ha sido siempre, artículo 322 de la nueva Constitución”, Partido Socialista, Franja televisiva del 8 de agosto de 2022.",
@@ -205,7 +216,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Partido Socialista de Chile"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Los privados no pueden crear establecimientos educacionales con un proyecto educativo libre, sólo el Estado y los pueblos originarios, ¿Por qué tendría un pueblo originario ese derecho y no así el resto de la ciudadanía? Lea el artículo 36, incisos 1 y 5”, ima...\"",
@@ -222,7 +234,8 @@
     "source": {
       "platform": "Instagram",
       "author": "@100razonespararechazar"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Con la Nueva Constitución se garantiza una salud y bienestar que no dependa de tu bolsillo. Por un Sistema Nacional de Salud donde atenderse no sea un lujo y ninguna libertad se pierda. Artículo 44.”, publicación en redes sociales del Apruebo.",
@@ -239,7 +252,8 @@
     "source": {
       "medium": "online media",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“A la hora de votar hay ciudadanos de primera y segunda clase. Muchos de nuestros policías, Fuerzas Armadas y gendarmes no pueden ejercer su derecho a voto porque sirven a la Patria ese día. Debemos darles facilidades para que puedan sufragar!”, diputado Cristián Araya en Twitter.",
@@ -256,24 +270,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@cristian_arayal"
-    }
-  },
-  {
-    "fact": "“La actual Constitución del 80 en ninguna parte menciona la discapacidad, accesibilidad, inclusión o diversidad. En cambio, en la Nueva Constitución, en sus principios detalla que Chile es un Estado plurinacional, intercultural, regional y su democracia es inclusiva y paritaria”,  Mauricio Riffo, en Ti...\"",
-    "url": "https://factchecking.cl/user-review/la-constitucion-vigente-no-menciona-los-conceptos-de-discapacidad-accesibilidad-inclusion-o-diversidad-pero-si-lo-hace-la-actual-legislacion/",
-    "verification": "true",
-    "verificationRaw": "Verdadero",
-    "categoryRaw": "Inclusión",
-    "articleTitle": "La Constitución vigente no menciona los conceptos de discapacidad, accesibilidad, inclusión o diversidad, pero sí lo hace la actual legislación",
-    "articleSubtitle": "La publicación hecha en TikTok por Mauricio Riffo es verdad, ya que la Constitución actual no incluye las palabras “discapacidad, accesibilidad, inclusión o diversidad”, las que sí están incluídas en la legislación vigente, pero dentro de la  Ley 20.422, publicada el 10 de febrero de 2010. Por otra parte, en el proyecto de nueva Constitución efectivamente se consigna a Chile como un Estado plurinacional, intercultural, regional, con una democracia inclusiva y paritaria.",
-    "articleBody": "Por Gustavo Marín\n\nEl tiktoker chileno, Mauricio Riffo, más conocido en redes sociales como “Teniente Dan”, publicó en su cuenta personal –seguida por más de un millón de personas– un video con la siguiente afirmación:\n“La actual Constitución del 80 en ninguna parte menciona la discapacidad, accesibilidad, inclusión o diversidad. En cambio, en la Nueva Constitución, en sus principios detalla que Chile es un Estado plurinacional, intercultural, regional y su democracia es inclusiva y paritaria”.\nEl Equipo de FactChecking.cl revisó el contenido de la  Constitución actual, donde fue posible verificar que las palabras “discapacidad”, “accesibilidad”, “inclusión” y “diversidad” estaban ausentes en el texto.\nPor otro lado, se hizo una revisión a la legislación vigente, encontrando estos conceptos incluídos en la Ley 20.422, publicada el 10 de febrero de 2010, que establece las “normas sobre igualdad de oportunidades e inclusión social de personas con discapacidad”.\nSi comparamos el texto actual con la propuesta de la nueva Constitución, se puede  ver una diferencia, ya que en este la palabra “discapacidad” es mencionada en ocho artículos diferentes; “accesibilidad” en seis; “inclusión” en 12 y “diversidad/es” en 11. \nPor último, el primer inciso del artículo 1 del proyecto de la nueva Constitución, consigna que Chile es un Estado “plurinacional, intercultural, regional y ecológico”, y en el segundo inciso del mismo artículo señala que su democracia es “inclusiva y paritaria”.\nA partir de lo investigado por el Equipo de FactChecking.cl se llegó a la conclusión de que la frase es verdadera, ya que los conceptos de “discapacidad”, “accesibilidad”, “inclusión” y “diversidad” no aparecen en la Constitución vigente, siendo incluídos en la legislación mediante la Ley 20.422. Por otra parte, la nueva propuesta de Constitución, sí los explicita y declara que el Estado de Chile es plurinacional, intercultural, regional y su democracia es inclusiva y paritaria. \n\n\n\nRelacionado",
-    "summary": "El artículo verifica una afirmación del tiktoker 'Teniente Dan' (Mauricio Riffo) que sostiene que la actual Constitución de 1980 no menciona los conceptos de discapacidad, accesibilidad, inclusión o diversidad, mientras que la propuesta de nueva Constitución sí los incorpora explícitamente y declara a Chile como un Estado plurinacional, intercultural, regional y con una democracia inclusiva y paritaria. El Equipo de FactChecking.cl revisó la Constitución actual, confirmando la ausencia de dichos términos, aunque encontró que estos conceptos están legislados en la Ley 20.422 (publicada el 10 de febrero de 2010). Al comparar con el proyecto de nueva Constitución, se verificó que esta sí incluye 'discapacidad' en ocho artículos, 'accesibilidad' en seis, 'inclusión' en 12 y 'diversidad/es' en 11. Además, el proyecto efectivamente describe a Chile como un Estado plurinacional, intercultural, regional y ecológico, con una democracia inclusiva y paritaria. La conclusión del fact-checking es que la afirmación es verdadera.",
-    "date": null,
-    "authors": "Gustavo Marín",
-    "source": {
-      "platform": "TikTok",
-      "author": "@tenientedance"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Cualquier modificación a la constitución deberá ser sometida a la aprobación de los pueblos indígenas\", video en Tik Tok.",
@@ -290,7 +288,8 @@
     "source": {
       "platform": "TikTok",
       "author": "@dalylibertario"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Los bienes como el aire, el agua o una playa no pueden ser comprados”, franja televisiva  Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo Bío Bío",
@@ -307,7 +306,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo Bío Bío"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Van a terminar con las Isapres”, Franja ciudadana por el Rechazo, 10 de agosto de 2022.",
@@ -330,7 +330,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "franja ciudadana por el rechazo"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“(...) la Derecha lo declaró Inconstitucional: 1) 40 hrs Semanales. 2) Atribuciones para Sernac. 3) Regulación precio medicamentos. 4) Fondo para financiar Au...\"",
@@ -347,7 +348,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@luisingermanico"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Chao educación particular subvencionada. Más de la mitad de estudiantes está en colegios particulares subvencionados y se pretende hacer desaparecer este modelo(...). Lea el artículo 36 y note como no hay cabida a este sistema”, cuenta de",
@@ -364,7 +366,8 @@
     "source": {
       "platform": "Instagram",
       "author": "@100razonespararechazar"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Que el 1% del país se lleve el 30% del Producto Interno Bruto para la casa todos los años, será INCONSTITUCIONAL”, ex convencional por Magallanes, Mauricio Daza.",
@@ -381,7 +384,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@mdaza_abogado"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"Establece un nuevo sistema de salud obligatorio y si es que alguien se quiere atender de manera privada deberá pagar dos veces, tanto el obligatorio como el sistema privado de salud\", Cristian Daly, periodista y actual concejal de Lo Barnechea, TikTok.",
@@ -398,7 +402,8 @@
     "source": {
       "platform": "TikTok",
       "author": "@dalylibertario"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Perdón que me meta, pero soy estudiante de Derecho y la nueva Constitución es la única en el mundo con la espiritualidad como derecho fundamental, Art. 9”, franja electoral del Apruebo.",
@@ -415,7 +420,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“En el borrador de la nueva constitución, en el artículo 17, habla sobre una soberanía alimentaria. ¿Esto qué quiere decir? Que el Estado se va a hacer cargo de producir y distribuir alimentos para supuestamente garantizar una alimentación sana y justa. En otras palabras, quiere decir que el Estado se va a ha...\"",
@@ -432,7 +438,8 @@
     "source": {
       "platform": "TikTok",
       "author": "@Lfnr13"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Gary, lucho mena, barticcioto, jean bose, el queno mena......y nada en los medios, pero el pinilla una semana de titulares en todos los medios (sic). Apruebo💪\", publicación en Twitter.",
@@ -448,7 +455,8 @@
     "authors": ["Nathalie Tello", "Josefina Arntz", "Miguel Avilés"],
     "source": {
       "medium": "online media"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"Sabías que desde 2010, con el aumento del terrorismo, la superficie de la tierra sembrada con trigo ha disminuido un 44% en La Araucanía. Si la falta de seguridad persiste, no es de extrañar que la producción de harina y pan no llegue ...\"",
@@ -465,7 +473,8 @@
     "source": {
       "medium": "leaflets",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Nueva Constitución reconoce por primera vez en 170 años a Bomberos como Organismo del Estado”, @nomasafp_Chile en Instagram.",
@@ -482,7 +491,8 @@
     "source": {
       "platform": "Instagram",
       "author": "@nomasafp_chile"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Derecho de propiedad: Fin a la casa propia”, panfleto del Rechazo.",
@@ -499,7 +509,8 @@
     "source": {
       "medium": "leaflets",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“(La propuesta de nueva Constitución) asegura el acceso universal a la educación de calidad en todos sus niveles. Estudiar ya no va a ser un privilegio de la elite. Esto es un paso hacia adelante, hacia el desarrollo, hacia la obtención de empleos de calidad”,  Natalia Piergentili y Vlado Mirosevic en franja ...\"",
@@ -516,7 +527,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Partido por la Democracia y el Partido Liberal"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"Sabía usted que Piñera es el único ex Presidente que rechazó el pago de la pensión vitalicia\", comentario viral usuario en Twitter.",
@@ -533,7 +545,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@Coiron7"
-    }
+    },
+    "preference": "neutral"
   },
   {
     "fact": "“En la actual Constitución un animal es lo mismo que un objeto. Pero para la nueva Constitución los animales tienen derechos”, Gerardo Espíndola, alcalde de Arica, Partido Liberal.",
@@ -550,7 +563,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@Gerardo_Arica"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Ocurre que aquí se eligieron los convencionales y se les pidió ⅔, de manera que todas las normas fueron aprobadas por ⅔, o sea bastante más que el 50%, pero es más, muchas de las normas que se han criticado, por ejemplo el derecho a propiedad, ¿por cuánto fue aprobado? 132 votos, por ejemplo la comuna au...\"",
@@ -567,7 +581,8 @@
     "source": {
       "medium": "television",
       "show": "24 Debates: camino al plebiscito"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Expropiarán tus ahorros futuros, es decir, un 10% de lo que ganarás mes a mes dejará de ser tuyo y pasará a un fondo común administrado por el Estado. Si tienes 30 años, los próximo 35 años perderás el 10% de tu sueldo”, publicación realizada en una actividad de la campaña del Rechazo en Antofagasta",
@@ -584,7 +599,8 @@
     "source": {
       "medium": "leaflets",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Esta propuesta de Constitución elimina la iniciativa exclusiva del Presidente en materias de gasto fiscal, y además ahora las identidades territoriales podrán emitir deuda”, Emilio Peña, secretario general del Partido de la Gente en franja televisiva del...\"",
@@ -601,7 +617,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "Una publicación hecha en Twitter por @...\"",
@@ -618,7 +635,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@neva_carrillo"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"Finalmente hoy día estamos generando un país que posibilita las dictaduras\", Nicolás Mendoza, estudiante de Derecho, en la franja por el Rechazo.",
@@ -635,7 +653,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"La nueva Constitución nos reconoce, respeta y garantiza nuestros derechos (de las mujeres). Por ejemplo, nos permitirá tener una vida libre de violencia dentro y fuera del hogar. Con medidas concretas, enfocadas en prevención, protección y reparación integral a las víctimas”, Paola Volpato franja televisiva ...\"",
@@ -652,7 +671,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Si el señor Llaitul hubiese sido detenido con el nuevo texto propuesto por la constituyente, hubiese sido juzgado por la justicia de Temucuicui y probablemente liberado en minutos“, Rojo Edwards, senador y presidente del Partido Republicano.",
@@ -669,7 +689,8 @@
     "source": {
       "medium": "television",
       "author": "Rojo Edwards"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Con la nueva Constitución, el SERNAC no solo fiscaliza, sino que, ¡sanciona! | Protección al Consumidor (Art. 81 N°3) Antiabuso (Art. 182 N°5)”, afirmación del comando de Aprueba X Chile en la franja electoral.",
@@ -686,7 +707,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Aprueba X Chile"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Nuestros ahorros no serán heredables”, Gaspar Rivas, diputado del Partido de la Gente (PDG) en Franja Televisiva.\n\n“Todo bien con mejorar las pensiones, ¿pero que no pueda dejar mi plata en herencia a mis hijos? Si es mi esfuerzo...\"",
@@ -703,7 +725,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Partido de la Gente"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"En la nueva Constitución, con el derecho a vivienda digna pagarás solo el 25% de sueldo en arriendo, prefiero pasar dividiendo tire lápiz\", publicación de Facebook.",
@@ -720,7 +743,8 @@
     "source": {
       "platform": "Facebook",
       "author": "Facho bomer"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"En el Chile de la nueva Constitución, se garantiza la propiedad privada de cada persona. Lo tuyo, es tuyo [...] El derecho a propiedad está totalmente garantizado\", Franja Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo...\"",
@@ -737,7 +761,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Aprueba X Chile"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Este supuesto derecho (aborto), no podría ser interferido por personas ni instituciones, con lo cual se prohíbe la objeción de conciencia personal e institucional”, folleto de  la Corporación Comunidad y Justicia.",
@@ -754,7 +779,8 @@
     "source": {
       "medium": "online media",
       "organization": "Corporación Comunidad y Justicia"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Se creará un Sistema Nacional de Educación que integrará a todos los establecimientos, incluyendo a los particulares subvencionados\", Nolfa Ibáñez Salgado, Premio Nacional de Educación, durante la Franja Televisiva del Apruebo.",
@@ -771,7 +797,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Donde no haya que esperar 30 años por una vivienda digna y sin hacinamiento”, Franja del Movimientos sociales por el Apruebo, 5 de agosto.",
@@ -788,7 +815,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Movimientos sociales por el Apruebo"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"La Constitución de la Convención rechazó la propuesta de crear una defensoría para las víctimas de la delincuencia\", franja televisiva del Rechazo 11 de agosto.",
@@ -805,7 +833,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "Franja",
@@ -822,7 +851,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Franja Ciudadana x el Rechazo"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“¿Cómo puede ser que les estén dando más derechos a los delincuentes que a las víctimas?”, Franja del Rechazo.",
@@ -839,7 +869,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Reject"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Los chilenos no tenemos derecho a una vivienda en la actual Constitución”, Franja del Apruebo, 8 de agosto de 2022.",
@@ -856,7 +887,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“Maduro abre su corazón y envía un cariñoso mensaje para que votes apruebo”, viral de TikTok.",
@@ -872,7 +904,8 @@
     "authors": ["Balén Miranda", "Antonio Pavez", "Gabriela Valdez"],
     "source": {
       "platform": "TikTok"
-    }
+    },
+    "preference": "neutral"
   },
   {
     "fact": "Frase: “La nueva Constitución es la única en el mundo hecha para enfrentar la crisis climática”, Franja televisiva Partido Socialista.",
@@ -889,7 +922,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“#Rechazo #Salida artículo 67.4 restringe la libertad religiosa y de predicación”, Confamilia Chile en Instagram.",
@@ -906,7 +940,8 @@
     "source": {
       "platform": "Facebook",
       "author": "Confamilia CHILE"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“De aprobarse la nueva Constitución, las Fuerzas Armadas no podrán cooperar como lo han hecho en situaciones de catástrofe”, usuario de Twitter",
@@ -928,7 +963,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@0324Marta"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Por primera vez la propuesta constitucional reconoce el papel fundamental de profesoras y profesores en la Educación\", Nolfa Ibáñez Salgado Premio Nacional de Educación durante Franja Televi...\"",
@@ -945,7 +981,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“(...)Un Sistema Nacional de Salud integrado por prestadores públicos y privados.(...) Con estos recursos tendremos más hospitales y centros de atención primaria”, Dr. Eduardo Bronstein en la Franja del Apruebo.",
@@ -962,7 +999,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Approve"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"¿Sabes cuántas familias no tienen casa propia? 641.421. En el Chile del mañana se castigará ¡pero en serio! A quienes jueguen con el precio de arriendos y compras de suelo y casas\", sin atribución.",
@@ -978,7 +1016,8 @@
     "authors": ["Felipe Jure", "José Tomás Asenjo", "Sofía Campos"],
     "source": {
       "medium": "online media"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Hoy, un condenado por más de 3 años y 1 día no puede votar. Con la nueva Constitución, sí lo hará. Y podrá ser candidato”, publicación de Instagram de @rechazo.ciudadano.",
@@ -994,7 +1033,8 @@
     "authors": ["Ignacia Vega", "Asunción Schazmann", "Josefina Arntz"],
     "source": {
       "platform": "Instagram"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "El 29 de julio, la usuaria de Twitter @jennette42 difundió la imagen de un grupo de personas manifestándose a favor del Apruebo en el Templo Votivo de Maipú. Tras conversar con la directora de la intervención y hacer una búsqueda inversa, el equipo de FactChecking.cl clasificó la imagen como falsa.\n\nIm...\"",
@@ -1011,7 +1051,8 @@
     "source": {
       "platform": "Twitter",
       "author": "@jennette42"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Para eliminar las iglesias de las calles. Sí apruebo de salida. Nueva Constitución”, sin autoría.",
@@ -1027,7 +1068,8 @@
     "authors": "Lucas Vergara Vera",
     "source": {
       "medium": "online media"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“¿Y mi casa nueva será del Estado? Eso es lo que ofrece el borrador constitucional. No es lo que yo quería. El sueño de la casa propia quedará en eso, un sueño. Derecho a una vivienda sí, pero esta será del Estado”, video en YouTube de Otra Constitución.",
@@ -1044,7 +1086,8 @@
     "source": {
       "platform": "YouTube",
       "author": "@otraconstitucion876"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Cualquier idea no podrá ser convertida en patente. Esta Constitución excluyó explícitamente el derecho de propiedad industrial  a pesar de que se insistió en que debía ser incluido\" (en relación al artículo 95 de la propuesta de nueva Constitución), señala Martín Altamirano de Fundación para el Progre...\"",
@@ -1061,7 +1104,8 @@
     "source": {
       "platform": "YouTube",
       "author": "@FPProgreso"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "\"Si se aprueba la nueva Constitución, Jaime tendrá derecho a un sueldo justo. Para que no tenga que tener dos pegas. Para que no tenga que llenarse de créditos (...)”, franja televisiva Apruebo x Chile.",
@@ -1078,7 +1122,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Aprueba X Chile"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“La actual Constitución permite al presidente decretar Estado de Emergencia para situaciones de desórdenes públicos fuera de control. La nueva Constitución lo elimina, evitando la posible intervención de las Fuerzas Armadas”, publicación en Instagram de @100razonespararechazar.",
@@ -1095,7 +1140,8 @@
     "source": {
       "platform": "Instagram",
       "author": "@100razonespararechazar"
-    }
+    },
+    "preference": "reject"
   },
   {
     "fact": "“Porque con la nueva Constitución ningún político corrupto va a poder llegar al poder. Y la colusión va a ser imposible\", franja televisiva por el Apruebo, Partido S...\"",
@@ -1112,7 +1158,8 @@
     "source": {
       "medium": "electoral campaign",
       "organization": "Partido Socialist"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "\"Primera vez en 32 años que Contraloría investiga a La Moneda por intervencionismo electoral\", Facebook Ir MoFe.",
@@ -1128,7 +1175,8 @@
     "authors": "Francisca Suárez",
     "source": {
       "platform": "Facebook"
-    }
+    },
+    "preference": "neutral"
   },
   {
     "fact": "“Nadie podrá coludirse sin un castigo real. No más clases de ética”, publicación en Facebook de Apruebo Dignidad.",
@@ -1144,7 +1192,8 @@
     "authors": ["Elizabeth Acosta", "Pablo Álvarez"],
     "source": {
       "medium": "online media"
-    }
+    },
+    "preference": "approve"
   },
   {
     "fact": "“No podrán optar a cargos públicos personas condenadas por delitos sexuales, violencia intrafamiliar, corrupción o fraude al fisco”, volante repartido por el Comando de Movimientos Sociales.",
@@ -1160,6 +1209,7 @@
     "authors": ["Ignacia Tabilo", "María José Cifuentes"],
     "source": {
       "medium": "online media"
-    }
+    },
+    "preference": "approve"
   }
 ]
