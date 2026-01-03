@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
 import * as Tooltip from "@radix-ui/react-tooltip";
+import { Separator } from "@radix-ui/react-separator";
 import * as d3 from "d3";
-import { useWindowSize } from "@uidotdev/usehooks";
 
 import data from "../data/extended-facts-verified.json";
 
@@ -10,38 +9,20 @@ import v2 from "./assets/v2.svg";
 import v3 from "./assets/v3.svg";
 import v4 from "./assets/v4.svg";
 import v5 from "./assets/v5.svg";
-// import v6 from "./assets/v6.svg";
 
 import "./App.css";
 
-interface Node extends d3.SimulationNodeDatum {
-  fact: string;
-  verification: string;
-  source: {
-    medium?: string;
-    platform?: string;
-  };
-  date: string | null;
-  verificationRaw: string;
-  articleSubtitle: string;
-  url: string;
-  categoryRaw: string;
-}
-type Scale = "verification" | "source" | "time";
-
-const [DEFAULT_WIDTH, DEFAULT_HEIGHT] = [1200, 350];
-const RADIUS = 12;
-const MAX_APP_WIDTH = 1000;
-const MIN_APP_WIDTH = 320;
-const APP_X_PADDING = 32;
-
 const parseTime = d3.utcParse("%Y.%m.%d");
-const formatTime = d3.utcFormat("%Y.%m.%d");
 const readableTime = d3.utcFormat("%d/%m/%Y");
-const baseData = data.map((d) => ({
+const baseData = data.map((d, index) => ({
   ...d,
-  x: DEFAULT_WIDTH / 2,
-  y: DEFAULT_HEIGHT / 2,
+  index,
+  preference:
+    Math.random() > 0.4
+      ? "approve"
+      : Math.random() > 0.1
+      ? "reject"
+      : "neutral",
 }));
 
 // const colorInter1 = d3.interpolateLab("#e68fc3", "#7386e8");
@@ -54,24 +35,24 @@ const baseData = data.map((d) => ({
 //   colorInter2(1),
 // ];
 const verificationValues = [
-  "false",
-  "creative",
-  "misleading",
-  "inaccurate",
   "true",
+  "inaccurate",
+  "misleading",
+  "creative",
+  "false",
 ];
+const verificationExplainers: Record<string, string> = {
+  false:
+    "La afirmación ha mostrado ser falsa tras ser verificada con las fuentes disponibles y expert@s.",
+  creative:
+    "La afirmación puede nacer de un dato verificable o de un hecho constatable, pero se exageran o combinan con falsedades.",
+  misleading:
+    "La afirmación contiene datos verificables, pero la interpretación que se hace de ellos, el contexto en que se sitúan, las proyecciones que se realizan con ellos o las correlaciones no son verificables.",
+  inaccurate:
+    "En términos generales la afirmación es correcta, debido a que se puede verificar con las fuentes disponibles y experto/as, pero hay datos imprecisos, omitidos o falta contexto.",
+  true: "La afirmación expresada es correcta al ser verificada con las fuentes disponibles y expert@s.",
+};
 
-// const verificationExplainers = {
-//   false:
-//     "La afirmación ha mostrado ser falsa tras ser verificada con las fuentes disponibles y expert@s.",
-//   creative:
-//     "La afirmación puede nacer de un dato verificable o de un hecho constatable, pero se exageran o combinan con falsedades.",
-//   misleading:
-//     "La afirmación contiene datos verificables, pero la interpretación que se hace de ellos, el contexto en que se sitúan, las proyecciones que se realizan con ellos o las correlaciones no son verificables.",
-//   inaccurate:
-//     "En términos generales la afirmación es correcta, debido a que se puede verificar con las fuentes disponibles y experto/as, pero hay datos imprecisos, omitidos o falta contexto.",
-//   true: "La afirmación expresada es correcta al ser verificada con las fuentes disponibles y expert@s.",
-// };
 const sourceValues = [
   "Instagram",
   "TikTok",
@@ -83,7 +64,36 @@ const sourceValues = [
   "television",
   "electoral campaign",
 ];
-const dateExtent = [parseTime("2022.04.19")!, parseTime("2022.08.29")!];
+const sourceExplainers: Record<string, string> = {
+  Instagram:
+    "Afirmación analizada se publicó originalmente en la plataforma social Instagram.",
+  TikTok:
+    "Afirmación analizada se publicó originalmente en la plataforma social TikTok.",
+  Twitter:
+    "Afirmación analizada se publicó originalmente en la plataforma social X (llamada entonces, Twittwe).",
+  YouTube:
+    "Afirmación analizada se publicó originalmente en la plataforma web YouTube.",
+  Facebook:
+    "Afirmación analizada se publicó originalmente en la plataforma social Facebook.",
+  leaflets:
+    "Afirmación analizada fue compartida originalmente a través de folletos impresos.",
+  "online media":
+    "Afirmación analizada es una medio digital, como una imagen o video, compartido en redes sociales o la web pero la fuente original de publicación se desconoce. .",
+  television:
+    "Afirmación analizada fue transmitida originalmente a través de televisión, vía programas de televisión o puntos de prensa.",
+  "electoral campaign":
+    "Afirmación analizada se transmitió originalmente a través de la franja electoral que se emitió acercándose al plebiscito.",
+};
+
+const preferenceValues = ["approve", "reject", "neutral"];
+const preferenceExplainers: Record<string, string> = {
+  approve:
+    "La afirmación se comparte como apoyo a la opción 'Apruebo' del plebiscito.",
+  reject:
+    "La afirmación se comparte como apoyo a la opción 'Rechazo' del plebiscito.",
+  neutral:
+    "La afirmación no se comparte como apoyo a ninguna opción del plebiscito, o no fue posible determinarlo.",
+};
 
 // const getColor = (v: string) => {
 //   const index = verificationValues.indexOf(v);
@@ -99,25 +109,12 @@ const getAvatar = (v: string) => {
   }[v];
 };
 
-const fieldAccessor = (d: Node, scale: Scale) =>
-  (scale === "verification"
-    ? d.verification
-    : scale === "time"
-    ? d.date
-    : d.source?.medium ?? d.source?.platform) ?? "";
-
 const rawVerificationMap: Record<string, string> = {
   true: "Verdadero",
   inaccurate: "Impreciso",
   misleading: "Engañoso",
   creative: "Se puso creativ@",
   false: "Falso",
-};
-const monthMap: Record<number, string> = {
-  5: "Mayo 2025",
-  6: "Junio 2025",
-  7: "Julio 2025",
-  8: "Agosto 2025",
 };
 const sourceMap: Record<string, string> = {
   Instagram: "Instagram",
@@ -126,168 +123,80 @@ const sourceMap: Record<string, string> = {
   YouTube: "YouTube",
   Facebook: "Facebook",
   leaflets: "Folletos",
-  "online media": "Contenido enlinea",
+  "online media": "Contenido en línea",
   television: "TV",
   "electoral campaign": "Franja electoral",
 };
+const rawPreferenceMap: Record<string, string> = {
+  approve: "Apruebo",
+  reject: "Rechazo",
+  neutral: "Neutral",
+};
+
+const TOTAL_CLAIMS = baseData.length;
+const verificationGroups = Object.fromEntries(
+  verificationValues.map((value) => {
+    return [value, baseData.filter((d) => d.verification === value)];
+  })
+);
+const sourceGroups: [string, typeof baseData][] = sourceValues.map((value) => {
+  const claims = baseData.filter(
+    (d) => (d.source?.medium ?? d.source?.platform) === value
+  );
+  claims.sort((a, b) => {
+    return (
+      verificationValues.indexOf(a.verification) -
+      verificationValues.indexOf(b.verification)
+    );
+  });
+
+  return [value, claims];
+});
+sourceGroups.sort((a, b) => b[1].length - a[1].length);
+
+const preferenceGroups = Object.fromEntries(
+  preferenceValues.map((value) => {
+    const claims = baseData.filter((d) => d.preference === value);
+    claims.sort((a, b) => {
+      return (
+        verificationValues.indexOf(a.verification) -
+        verificationValues.indexOf(b.verification)
+      );
+    });
+    return [value, claims];
+  })
+);
 
 function App() {
-  const [nodes, setNodes] = useState<Node[]>(baseData);
-
-  const [scale, setScale] = useState<Scale>("verification");
-
-  const size = useWindowSize();
-  const orientation = (size.width ?? 1000) > 800 ? "horizontal" : "vertical";
-  const dimensions =
-    orientation === "horizontal"
-      ? {
-          width: Math.max(
-            Math.min(
-              size.width ?? DEFAULT_WIDTH,
-              MAX_APP_WIDTH - 2 * APP_X_PADDING
-            ),
-            MIN_APP_WIDTH - 2 * APP_X_PADDING
-          ),
-          height: DEFAULT_HEIGHT,
-        }
-      : {
-          width: Math.max(
-            Math.min(
-              size.width ?? DEFAULT_WIDTH,
-              MAX_APP_WIDTH - 2 * APP_X_PADDING
-            ),
-            MIN_APP_WIDTH - 2 * APP_X_PADDING
-          ),
-          height: DEFAULT_WIDTH,
-        };
-  const sizeRef = useRef({ width: 0, height: 0 });
-
-  const verificationScale = d3
-    .scaleBand(verificationValues, [
-      orientation === "horizontal" ? dimensions.width : dimensions.height,
-      0,
-    ])
-    .paddingOuter(0.1)
-    .paddingInner(0.2);
-
-  const sourceScale = d3
-    .scaleBand(sourceValues, [
-      orientation === "horizontal" ? dimensions.width : dimensions.height,
-      0,
-    ])
-    .paddingOuter(0.1)
-    .paddingInner(0.2);
-
-  const timeScale = d3.scaleTime(dateExtent, [
-    (verificationScale(verificationValues[verificationValues.length - 2]) ??
-      0) +
-      verificationScale.bandwidth() / 2,
-    (verificationScale(verificationValues[0]) ?? 0) +
-      verificationScale.bandwidth() / 2,
-  ]);
-
-  const getPosition = useCallback(
-    (v: string) => {
-      if (scale === "time") {
-        return !v
-          ? (verificationScale(
-              verificationValues[verificationValues.length - 1]
-            ) ?? 0) +
-              verificationScale.bandwidth() / 2
-          : timeScale(parseTime(v)!);
-      }
-      if (scale === "source") {
-        return (
-          (sourceScale(v) ?? sourceScale.range()[0]) +
-          sourceScale.bandwidth() / 2
-        );
-      }
-
-      if (scale === "verification") {
-        return (
-          (verificationScale(v) ?? verificationScale.range()[0]) +
-          verificationScale.bandwidth() / 2
-        );
-      }
-
-      return 0;
-    },
-    [scale, timeScale, sourceScale, verificationScale]
-  );
-
-  const simulation = useRef<d3.Simulation<Node, undefined>>(null);
-
-  const getSimulation = useCallback(
-    () =>
-      d3
-        .forceSimulation<Node>(nodes)
-        .alphaMin(0.01)
-        .alphaTarget(0)
-        .alpha(1)
-        .force(
-          "forceX",
-          orientation === "horizontal"
-            ? d3
-                .forceX((d: Node) => getPosition(fieldAccessor(d, scale)))
-                .strength(0.09)
-            : d3.forceX(dimensions.width * 0.6).strength(0.05)
-        )
-        .force(
-          "forceY",
-          orientation === "horizontal"
-            ? d3.forceY(dimensions.height * 0.6).strength(0.05)
-            : d3
-                .forceY((d: Node) => getPosition(fieldAccessor(d, scale)))
-                .strength(0.09)
-        )
-        .force("collision", d3.forceCollide(RADIUS * 1.1))
-        .on("tick", () => {
-          if ((simulation.current?.alpha() ?? 1) < 0.01) {
-            simulation.current?.stop();
-          }
-          setNodes(() =>
-            [...nodes].map((n) => ({
-              ...n,
-              x: Math.max(
-                RADIUS,
-                Math.min(MAX_APP_WIDTH - 2 * APP_X_PADDING - RADIUS, n.x ?? 0)
-              ),
-              y: Math.max(RADIUS, Math.min(DEFAULT_WIDTH - RADIUS, n.y ?? 0)),
-            }))
-          );
-        }),
-    [
-      orientation,
-      getPosition,
-      nodes,
-      setNodes,
-      dimensions.width,
-      dimensions.height,
-      scale,
-    ]
-  );
-
-  useEffect(() => {
-    if (dimensions.width != sizeRef.current.width) {
-      simulation.current?.stop();
-
-      simulation.current = getSimulation();
-    }
-
-    sizeRef.current = {
-      width: dimensions.width,
-      height: dimensions.height,
-    };
-  }, [dimensions.width, dimensions.height, getSimulation]);
-
-  useEffect(() => {
-    simulation.current?.stop();
-    simulation.current = getSimulation();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scale]);
-
   return (
-    <>
+    <Tooltip.Provider
+      skipDelayDuration={0}
+      delayDuration={0}
+      disableHoverableContent={true}
+    >
+      <button
+        className="backToTop"
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34H20H18ZM21.4142 5.58579C20.6332 4.80474 19.3668 4.80474 18.5858 5.58579L5.85786 18.3137C5.07682 19.0948 5.07682 20.3611 5.85786 21.1421C6.63891 21.9232 7.90524 21.9232 8.68629 21.1421L20 9.82843L31.3137 21.1421C32.0948 21.9232 33.3611 21.9232 34.1421 21.1421C34.9232 20.3611 34.9232 19.0948 34.1421 18.3137L21.4142 5.58579ZM20 34H22V7H20H18V34H20Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+
       <div className="wrapper end"></div>
 
       <div className="wrapper titleWrapper">
@@ -298,29 +207,6 @@ function App() {
 
       <div className="wrapper">
         <div className="container">
-          <button
-            className="backToTop"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34H20H18ZM21.4142 5.58579C20.6332 4.80474 19.3668 4.80474 18.5858 5.58579L5.85786 18.3137C5.07682 19.0948 5.07682 20.3611 5.85786 21.1421C6.63891 21.9232 7.90524 21.9232 8.68629 21.1421L20 9.82843L31.3137 21.1421C32.0948 21.9232 33.3611 21.9232 34.1421 21.1421C34.9232 20.3611 34.9232 19.0948 34.1421 18.3137L21.4142 5.58579ZM20 34H22V7H20H18V34H20Z"
-                fill="white"
-              />
-            </svg>
-          </button>
-
           <p className="intro">
             Las siguientes son las verificaciones, realizadas por el equipo de{" "}
             <a
@@ -331,236 +217,505 @@ function App() {
               Factchecking.cl
             </a>
             , sobre afirmaciones que circularon diversas plataformas sobre el
-            proceso constituyente. Organiza por:{" "}
-            <select
-              value={scale}
-              onChange={(e) => setScale(e.target.value as Scale)}
-            >
-              <option value="verification">Verificaciones</option>
-              <option value="source">Fuente</option>
-              <option value="time">Fecha de publicación</option>
-            </select>
+            proceso constituyente.
           </p>
+        </div>
+      </div>
 
-          <div
-            className="visualizationWrapper"
-            style={
-              {
-                "--height": `${dimensions.height}px`,
-              } as React.CSSProperties
-            }
-          >
-            {nodes.map((v, index) => (
-              <Tooltip.Provider delayDuration={0} key={v.fact}>
-                <Tooltip.Root>
-                  <Tooltip.Trigger asChild>
-                    <div
-                      className="node"
-                      style={
-                        {
-                          "--y": `${v.y ?? 0 - RADIUS}px`,
-                          "--x": `${v.x ?? 0 - RADIUS}px`,
-                          "--size": `${RADIUS * 2}px`,
-                        } as React.CSSProperties
-                      }
-                      onClick={() => {
-                        const div = document.getElementById(`claim-${index}`);
-                        window.scrollTo({
-                          top: div?.getBoundingClientRect().y,
-                          behavior: "smooth",
-                        });
-                      }}
-                    >
-                      <img
-                        src={getAvatar(v.verification)}
-                        width={RADIUS * 2}
-                        height={RADIUS * 2}
-                      />
+      <div className="wrapper">
+        <div className="container">
+          <div className="visualizationWrapper">
+            <div className="visualizationColumn">
+              <p>Resultado de verificación</p>
+              <div className="visualizationGroupWrapper">
+                {Object.entries(verificationGroups).map(([value, claims]) => (
+                  <div className="visualizationGroup">
+                    <p>
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger asChild>
+                          <span>{rawVerificationMap[value]} </span>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="tooltipContent"
+                            sideOffset={8}
+                            side="top"
+                          >
+                            <div className="verificationWrapper">
+                              <img
+                                className="verificationAvatar"
+                                src={getAvatar(value)}
+                              ></img>
+                            </div>
+                            <div className="tooltipText">
+                              <p className="explainer">
+                                <strong>{rawVerificationMap[value]}</strong>:{" "}
+                                {verificationExplainers[value]}
+                              </p>
+                            </div>
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger asChild>
+                          <strong>
+                            {Math.round((100 * claims.length) / TOTAL_CLAIMS)}%
+                          </strong>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="tooltipContent small"
+                            sideOffset={8}
+                            side="top"
+                          >
+                            {claims.length} de {TOTAL_CLAIMS}
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+                    </p>
+                    <div className="visualizationDots">
+                      {claims.map((d) => (
+                        <Tooltip.Root key={d.index} delayDuration={0}>
+                          <Tooltip.Trigger asChild>
+                            <div
+                              className={`node claim-${d.index}`}
+                              onMouseOver={() => {
+                                const elements = document.querySelectorAll(
+                                  `.claim-${d.index}`
+                                );
+                                elements.forEach((el) => {
+                                  el.className = `${el.className} selected`;
+                                });
+                              }}
+                              onMouseOut={() => {
+                                const elements = document.querySelectorAll(
+                                  `.claim-${d.index}`
+                                );
+                                elements.forEach((el) => {
+                                  el.className = el.className.replaceAll(
+                                    " selected",
+                                    ""
+                                  );
+                                });
+                              }}
+                              onClick={() => {
+                                const div = document.getElementById(
+                                  `claim-${d.index}`
+                                );
+                                window.scrollTo({
+                                  top: div?.getBoundingClientRect().y,
+                                  behavior: "smooth",
+                                });
+                              }}
+                            >
+                              <img src={getAvatar(d.verification)} />
+                            </div>
+                          </Tooltip.Trigger>
+                          <Tooltip.Portal>
+                            <Tooltip.Content
+                              className="tooltipContent"
+                              sideOffset={8}
+                              side="top"
+                            >
+                              <div className="verificationWrapper">
+                                <img
+                                  className="verificationAvatar"
+                                  src={getAvatar(d.verification)}
+                                ></img>
+                                <span>
+                                  <strong>{d.verificationRaw}</strong>
+                                </span>
+                              </div>
+                              <div className="tooltipText">
+                                <div className="category">
+                                  <p>
+                                    Afirmación <strong>#{d.index + 1}</strong>{" "}
+                                    sobre{" "}
+                                    <strong className="emphasisText">
+                                      {" "}
+                                      {d.categoryRaw}
+                                    </strong>{" "}
+                                  </p>
+                                  <p className="source">
+                                    {
+                                      sourceMap[
+                                        (d.source?.medium ??
+                                          d.source?.platform)!
+                                      ]
+                                    }{" "}
+                                    (
+                                    {d.date == null
+                                      ? "fecha desconocida"
+                                      : readableTime(parseTime(d.date!)!)}
+                                    )
+                                  </p>
+                                </div>
+
+                                <p className="instruction">
+                                  Haz clic para revisar verificación.
+                                </p>
+                              </div>
+                            </Tooltip.Content>
+                          </Tooltip.Portal>
+                        </Tooltip.Root>
+                      ))}
                     </div>
-                  </Tooltip.Trigger>
-                  <Tooltip.Portal>
-                    <Tooltip.Content
-                      className="tooltipContent"
-                      sideOffset={8}
-                      side="top"
-                    >
-                      <div className="verificationWrapper">
-                        <img
-                          className="verificationAvatar"
-                          src={getAvatar(v.verification)}
-                        ></img>
-                        <span>
-                          <strong>{v.verificationRaw}</strong>
-                        </span>
-                      </div>
-                      <div className="tooltipText">
-                        <div className="category">
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Separator className="separator" />
+            <div className="visualizationColumn">
+              <p>Fuente de afirmación</p>
+              <div className="visualizationGroupWrapper">
+                {sourceGroups.map(([value, claims]) => (
+                  <div className="visualizationGroup">
+                    <p>
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger asChild>
+                          <span>{sourceMap[value]} </span>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="tooltipContent"
+                            sideOffset={8}
+                            side="top"
+                          >
+                            <div className="tooltipText">
+                              <p className="explainer">
+                                <strong>{sourceMap[value]}</strong>:{" "}
+                                {sourceExplainers[value]}
+                              </p>
+                            </div>
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger asChild>
+                          <strong>
+                            {Math.round((100 * claims.length) / TOTAL_CLAIMS)}%
+                          </strong>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="tooltipContent small"
+                            sideOffset={8}
+                            side="top"
+                          >
+                            {claims.length} de {TOTAL_CLAIMS}
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+                    </p>
+                    <div className="visualizationDots">
+                      {claims.map((d) => (
+                        <Tooltip.Root key={d.index} delayDuration={0}>
+                          <Tooltip.Trigger asChild>
+                            <div
+                              className={`node claim-${d.index}`}
+                              onMouseOver={() => {
+                                const elements = document.querySelectorAll(
+                                  `.claim-${d.index}`
+                                );
+                                elements.forEach((el) => {
+                                  el.className = `${el.className} selected`;
+                                });
+                              }}
+                              onMouseOut={() => {
+                                const elements = document.querySelectorAll(
+                                  `.claim-${d.index}`
+                                );
+                                elements.forEach((el) => {
+                                  el.className = el.className.replaceAll(
+                                    " selected",
+                                    ""
+                                  );
+                                });
+                              }}
+                              onClick={() => {
+                                const div = document.getElementById(
+                                  `claim-${d.index}`
+                                );
+                                window.scrollTo({
+                                  top: div?.getBoundingClientRect().y,
+                                  behavior: "smooth",
+                                });
+                              }}
+                            >
+                              <img src={getAvatar(d.verification)} />
+                            </div>
+                          </Tooltip.Trigger>
+                          <Tooltip.Portal>
+                            <Tooltip.Content
+                              className="tooltipContent"
+                              sideOffset={8}
+                              side="top"
+                            >
+                              <div className="verificationWrapper">
+                                <img
+                                  className="verificationAvatar"
+                                  src={getAvatar(d.verification)}
+                                ></img>
+                                <span>
+                                  <strong>{d.verificationRaw}</strong>
+                                </span>
+                              </div>
+                              <div className="tooltipText">
+                                <div className="category">
+                                  <p>
+                                    Afirmación <strong>#{d.index + 1}</strong>{" "}
+                                    sobre{" "}
+                                    <strong className="emphasisText">
+                                      {" "}
+                                      {d.categoryRaw}
+                                    </strong>{" "}
+                                  </p>
+                                  <p className="source">
+                                    {
+                                      sourceMap[
+                                        (d.source?.medium ??
+                                          d.source?.platform)!
+                                      ]
+                                    }{" "}
+                                    (
+                                    {d.date == null
+                                      ? "fecha desconocida"
+                                      : readableTime(parseTime(d.date!)!)}
+                                    )
+                                  </p>
+                                </div>
+
+                                <p className="instruction">
+                                  Haz clic para revisar verificación.
+                                </p>
+                              </div>
+                            </Tooltip.Content>
+                          </Tooltip.Portal>
+                        </Tooltip.Root>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Separator className="separator" />
+            <div className="visualizationColumn">
+              <p>Preferencia plebiscito</p>
+              <div className="visualizationGroupWrapper">
+                {Object.entries(preferenceGroups).map(([value, claims]) => (
+                  <div className="visualizationGroup">
+                    <p>
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger asChild>
+                          <span>{rawPreferenceMap[value]} </span>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="tooltipContent"
+                            sideOffset={8}
+                            side="top"
+                          >
+                            <div className="tooltipText">
+                              <p className="explainer">
+                                <strong>{rawPreferenceMap[value]}</strong>:{" "}
+                                {preferenceExplainers[value]}
+                              </p>
+                            </div>
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger asChild>
+                          <strong>
+                            {Math.round((100 * claims.length) / TOTAL_CLAIMS)}%
+                          </strong>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content
+                            className="tooltipContent small"
+                            sideOffset={8}
+                            side="top"
+                          >
+                            {claims.length} de {TOTAL_CLAIMS}
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+                    </p>
+                    <div className="visualizationDots">
+                      {claims.map((d) => (
+                        <Tooltip.Root key={d.index} delayDuration={0}>
+                          <Tooltip.Trigger asChild>
+                            <div
+                              className={`node claim-${d.index}`}
+                              onMouseOver={() => {
+                                const elements = document.querySelectorAll(
+                                  `.claim-${d.index}`
+                                );
+                                elements.forEach((el) => {
+                                  el.className = `${el.className} selected`;
+                                });
+                              }}
+                              onMouseOut={() => {
+                                const elements = document.querySelectorAll(
+                                  `.claim-${d.index}`
+                                );
+                                elements.forEach((el) => {
+                                  el.className = el.className.replaceAll(
+                                    " selected",
+                                    ""
+                                  );
+                                });
+                              }}
+                              onClick={() => {
+                                const div = document.getElementById(
+                                  `claim-${d.index}`
+                                );
+                                window.scrollTo({
+                                  top: div?.getBoundingClientRect().y,
+                                  behavior: "smooth",
+                                });
+                              }}
+                            >
+                              <img src={getAvatar(d.verification)} />
+                            </div>
+                          </Tooltip.Trigger>
+                          <Tooltip.Portal>
+                            <Tooltip.Content
+                              className="tooltipContent"
+                              sideOffset={8}
+                              side="top"
+                            >
+                              <div className="verificationWrapper">
+                                <img
+                                  className="verificationAvatar"
+                                  src={getAvatar(d.verification)}
+                                ></img>
+                                <span>
+                                  <strong>{d.verificationRaw}</strong>
+                                </span>
+                              </div>
+                              <div className="tooltipText">
+                                <div className="category">
+                                  <p>
+                                    Afirmación <strong>#{d.index + 1}</strong>{" "}
+                                    sobre{" "}
+                                    <strong className="emphasisText">
+                                      {" "}
+                                      {d.categoryRaw}
+                                    </strong>{" "}
+                                  </p>
+                                  <p className="source">
+                                    {
+                                      sourceMap[
+                                        (d.source?.medium ??
+                                          d.source?.platform)!
+                                      ]
+                                    }{" "}
+                                    (
+                                    {d.date == null
+                                      ? "fecha desconocida"
+                                      : readableTime(parseTime(d.date!)!)}
+                                    )
+                                  </p>
+                                </div>
+
+                                <p className="instruction">
+                                  Haz clic para revisar verificación.
+                                </p>
+                              </div>
+                            </Tooltip.Content>
+                          </Tooltip.Portal>
+                        </Tooltip.Root>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="wrapper">
+        <div className="container">
+          <div className="claimList">
+            {baseData.map((n) => (
+              <div className="claim" key={`claim-${n.index}`}>
+                <div className="claimHeader">
+                  <h2 id={`claim-${n.index}`}>
+                    Afirmación <strong> #{n.index + 1}</strong> sobre{" "}
+                    <strong className="emphasisText"> {n.categoryRaw}</strong>
+                  </h2>
+
+                  <div className="claimWrapper">
+                    <Tooltip.Root delayDuration={0}>
+                      <Tooltip.Trigger asChild>
+                        <div className="verificationWrapper">
+                          <img src={getAvatar(n.verification)}></img>
+
                           <p>
-                            Afirmación <strong>#{index + 1}</strong> sobre{" "}
-                            <strong className="emphasisText">
-                              {" "}
-                              {v.categoryRaw}
-                            </strong>{" "}
-                          </p>
-                          <p className="source">
-                            {
-                              sourceMap[
-                                (v.source?.medium ?? v.source?.platform)!
-                              ]
-                            }{" "}
-                            (
-                            {v.date == null
-                              ? "fecha desconocida"
-                              : readableTime(parseTime(v.date!)!)}
-                            )
+                            <strong>{n.verificationRaw}</strong>
                           </p>
                         </div>
+                      </Tooltip.Trigger>
+                      <Tooltip.Portal>
+                        <Tooltip.Content
+                          className="tooltipContent"
+                          sideOffset={8}
+                          side="top"
+                        >
+                          <div className="verificationWrapper">
+                            <img
+                              className="verificationAvatar"
+                              src={getAvatar(n.verification)}
+                            ></img>
+                          </div>
+                          <div className="tooltipText">
+                            <p className="explainer">
+                              <strong>
+                                {rawVerificationMap[n.verification]}
+                              </strong>
+                              : {verificationExplainers[n.verification]}
+                            </p>
+                          </div>
+                        </Tooltip.Content>
+                      </Tooltip.Portal>
+                    </Tooltip.Root>
 
-                        <p className="instruction">
-                          Haz clic para revisar verificación.
-                        </p>
-                      </div>
-                    </Tooltip.Content>
-                  </Tooltip.Portal>
-                </Tooltip.Root>
-              </Tooltip.Provider>
-            ))}
-
-            {scale === "verification" &&
-              verificationValues.map((v) => (
-                <p
-                  key={"veri-" + v}
-                  className="verificationTick"
-                  style={
-                    {
-                      "--y":
-                        orientation === "horizontal"
-                          ? `${20}px`
-                          : `${getPosition(v)}px`,
-                      "--x":
-                        orientation === "horizontal"
-                          ? `${getPosition(v)}px`
-                          : `${20}px`,
-                      "--transform":
-                        orientation === "horizontal" ? `translateX(-50%)` : "",
-                    } as React.CSSProperties
-                  }
-                >
-                  {rawVerificationMap[v]}
-                  <img className="avatar" src={getAvatar(v)} />
-                </p>
-              ))}
-
-            {scale === "source" &&
-              sourceValues.map((v) => (
-                <p
-                  key={"source-" + v}
-                  className="sourceTick"
-                  style={
-                    {
-                      "--y":
-                        orientation === "horizontal"
-                          ? `${20}px`
-                          : `${getPosition(v)}px`,
-                      "--x":
-                        orientation === "horizontal"
-                          ? `${getPosition(v) + 5}px`
-                          : `${20}px`,
-                      "--transform":
-                        orientation === "horizontal" ? `translateX(-50%)` : "",
-                    } as React.CSSProperties
-                  }
-                >
-                  {sourceMap[v]}
-                </p>
-              ))}
-
-            {scale === "time" &&
-              timeScale.ticks(5).map((v) => (
-                <p
-                  key={"time-" + v}
-                  className="timeTick"
-                  style={
-                    {
-                      "--y":
-                        orientation === "horizontal"
-                          ? `${20}px`
-                          : `${getPosition(formatTime(v))}px`,
-                      "--x":
-                        orientation === "horizontal"
-                          ? `${getPosition(formatTime(v)) + 5}px`
-                          : `${20}px`,
-                      "--transform":
-                        orientation === "horizontal" ? `translateX(-50%)` : "",
-                    } as React.CSSProperties
-                  }
-                >
-                  {monthMap[v.getMonth() + 1]}
-                </p>
-              ))}
-            {scale === "time" && (
-              <p
-                key={"time-unk"}
-                className="timeTick"
-                style={
-                  {
-                    "--y":
-                      orientation === "horizontal"
-                        ? `${20}px`
-                        : `${getPosition("")}px`,
-                    "--x":
-                      orientation === "horizontal"
-                        ? `${getPosition("") + 5}px`
-                        : `${20}px`,
-                    "--transform":
-                      orientation === "horizontal" ? `translateX(-50%)` : "",
-                  } as React.CSSProperties
-                }
-              >
-                Fecha desconocida
-              </p>
-            )}
-          </div>
-
-          <div className="claimList">
-            {nodes.map((n, i) => (
-              <div className="claim">
-                <h2 id={`claim-${i}`}>
-                  Afirmación <strong> #{i + 1}</strong> sobre{" "}
-                  <strong className="emphasisText"> {n.categoryRaw}</strong>
-                </h2>
-
-                <div className="claimWrapper">
-                  <div className="verificationWrapper">
-                    <img src={getAvatar(n.verification)}></img>
-
-                    <p>
-                      <strong>{n.verificationRaw}</strong>
-                    </p>
-                  </div>
-
-                  <div className="textWrapper">
-                    <blockquote>{n.fact}</blockquote>
-                    <p className="source">
-                      {sourceMap[(n.source?.medium ?? n.source?.platform)!]} (
-                      {n.date == null
-                        ? "fecha desconocida"
-                        : readableTime(parseTime(n.date!)!)}
-                      )
-                    </p>
+                    <div className="textWrapper">
+                      <blockquote>{n.fact}</blockquote>
+                      <p className="source">
+                        {sourceMap[(n.source?.medium ?? n.source?.platform)!]} (
+                        {n.date == null
+                          ? "fecha desconocida"
+                          : readableTime(parseTime(n.date!)!)}
+                        )
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <p className="result">
-                  {n.articleSubtitle} Para más detalles, revisa el{" "}
-                  <a href={n.url} rel="noreferrer" target="_blank">
-                    artículo de verificación.
-                  </a>
-                </p>
+                <div className="result">
+                  <p className="resultHeader">
+                    <strong>Análisis de fackchecking.cl</strong>
+                  </p>
+                  <p>
+                    {n.articleSubtitle} Para más detalles, revisa el{" "}
+                    <a href={n.url} rel="noreferrer" target="_blank">
+                      artículo de verificación.
+                    </a>
+                  </p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </div>
 
+      <div className="wrapper">
+        <div className="container">
           <p className="outtro">
             Sitio creado por
             <a
@@ -584,7 +739,7 @@ function App() {
       </div>
 
       <div className="wrapper end"></div>
-    </>
+    </Tooltip.Provider>
   );
 }
 

@@ -57,21 +57,68 @@
 }
 
 .visualizationWrapper {
+  --node-size: var(--space-m);
+  --node-gap: var(--space-4xs);
+  --amount: 6;
+  --group-width: calc(
+    var(--amount) * var(--node-size) + (var(--amount) - 1) * var(--node-gap)
+  );
+
   width: 100%;
-  height: var(--height);
-  position: relative;
-  margin: var(--space-l) 0;
   overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  padding: var(--space-s);
+  margin-bottom: var(--space-xl);
+}
+
+.separator {
+  background-color: gray;
+}
+
+.separator[data-orientation="horizontal"] {
+  height: 1px;
+  width: 100%;
+}
+
+.visualizationColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.visualizationColumn > p {
+  font-size: var(--text-body-s);
+}
+
+.visualizationGroupWrapper {
+  display: flex;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+.visualizationGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  width: var(--group-width);
+}
+
+.visualizationGroup p {
+  font-size: var(--text-body-xs);
+}
+
+.visualizationDots {
+  display: flex;
+  gap: var(--node-gap);
+  flex-wrap: wrap;
 }
 
 .node {
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  width: var(--node-size);
+  height: var(--node-size);
+  flex-shrink: 0;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -80,9 +127,13 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.node:hover {
+.node img {
+  width: 100%;
+}
+
+.node:hover,
+.node.selected {
   transform: scale(1.5);
-  z-index: 1;
 }
 
 .tooltipContent {
@@ -93,6 +144,13 @@
   display: flex;
   gap: var(--space-s);
   align-items: center;
+}
+
+.tooltipContent.small {
+  padding: var(--space-4xs);
+  border: none;
+  border-radius: 0;
+  font-size: var(--text-body-xs);
 }
 
 .verificationWrapper {
@@ -123,6 +181,10 @@
   align-self: stretch;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.tooltipText .explainer {
+  font-size: var(--text-body-s);
 }
 
 .tooltipContent .instruction {
@@ -193,19 +255,24 @@
 }
 
 .claim {
-  margin-bottom: 0;
-  min-width: min(350px, 100%);
-  flex: 1;
+  width: 100%;
   display: flex;
-  gap: var(--space-m);
-  flex-direction: column;
+  gap: var(--space-2xl);
+  justify-content: space-between;
   border: 1px solid gray;
   padding: var(--space-m);
   border-radius: var(--border-radius);
   border-color: var(--primary-color);
 }
 
-.claim h2 {
+.claimHeader {
+  display: flex;
+  gap: var(--space-m);
+  flex-direction: column;
+}
+
+.claim h2,
+.resultHeader {
   font-size: var(--text-title-s);
   font-weight: normal;
   margin: 0;
@@ -214,7 +281,24 @@
 .claimWrapper {
   display: flex;
   gap: var(--space-m);
-  min-height: 200px;
+}
+
+.result {
+  flex-shrink: 0;
+  width: var(--measure-l);
+  display: flex;
+  gap: var(--space-xs);
+  flex-direction: column;
+}
+
+@media (max-width: 700px) {
+  .claim {
+    flex-direction: column;
+  }
+
+  .result {
+    width: initial;
+  }
 }
 
 @media (max-width: 400px) {
@@ -237,6 +321,7 @@
 .claimWrapper blockquote {
   margin: 0;
   font-size: var(--text-body-s);
+  font-style: italic;
 }
 
 .claimWrapper .textWrapper {

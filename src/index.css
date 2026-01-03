@@ -30,6 +30,8 @@
   --primary-color: #3a9bdf;
   --emphasis-background: #1c1c1c;
 
+  --space-4xs: 2px;
+  --space-3xs: 4px;
   --space-2xs: 8px;
   --space-xs: 12px;
   --space-s: 16px;
