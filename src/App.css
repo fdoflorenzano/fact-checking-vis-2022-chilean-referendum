@@ -194,7 +194,7 @@
 
 .claim {
   margin-bottom: 0;
-  min-width: 350px;
+  min-width: min(350px, 100%);
   flex: 1;
   display: flex;
   gap: var(--space-m);
@@ -215,6 +215,12 @@
   display: flex;
   gap: var(--space-m);
   min-height: 200px;
+}
+
+@media (max-width: 400px) {
+  .claimWrapper {
+    flex-direction: column-reverse;
+  }
 }
 
 .claimWrapper .verificationWrapper {
