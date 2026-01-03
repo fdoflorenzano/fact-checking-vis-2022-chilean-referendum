@@ -1,6 +1,7 @@
+import { useState } from "react";
+import * as d3 from "d3";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Separator } from "@radix-ui/react-separator";
-import * as d3 from "d3";
 
 import data from "../data/extended-facts-verified.json";
 
@@ -25,15 +26,6 @@ const baseData = data.map((d, index) => ({
       : "neutral",
 }));
 
-// const colorInter1 = d3.interpolateLab("#e68fc3", "#7386e8");
-// const colorInter2 = d3.interpolateLab("#7386e8", "#53c3ac");
-// const colorScale = [
-//   colorInter1(0),
-//   colorInter1(0.5),
-//   colorInter1(1),
-//   colorInter2(0.5),
-//   colorInter2(1),
-// ];
 const verificationValues = [
   "true",
   "inaccurate",
@@ -95,10 +87,6 @@ const preferenceExplainers: Record<string, string> = {
     "La afirmación no se comparte como apoyo a ninguna opción del plebiscito, o no fue posible determinarlo.",
 };
 
-// const getColor = (v: string) => {
-//   const index = verificationValues.indexOf(v);
-//   return index > -1 ? colorScale[index] : "black";
-// };
 const getAvatar = (v: string) => {
   return {
     false: v5,
@@ -168,6 +156,8 @@ const preferenceGroups = Object.fromEntries(
 );
 
 function App() {
+  const [lastClick, setLastClick] = useState<string | null>(null);
+
   return (
     <Tooltip.Provider
       skipDelayDuration={0}
@@ -177,10 +167,19 @@ function App() {
       <button
         className="backToTop"
         onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+          if (lastClick) {
+            const div = document.getElementById(lastClick);
+
+            window.scrollTo({
+              top: (div?.getBoundingClientRect().top ?? 0) + window.scrollY,
+              behavior: "smooth",
+            });
+          } else {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }
         }}
       >
         <svg
@@ -217,7 +216,8 @@ function App() {
               Factchecking.cl
             </a>
             , sobre afirmaciones que circularon diversas plataformas sobre el
-            proceso constituyente.
+            proceso constituyente. Esta página se experimenta de mejor manera en
+            su versión de escritorio.
           </p>
         </div>
       </div>
@@ -225,7 +225,7 @@ function App() {
       <div className="wrapper">
         <div className="container">
           <div className="visualizationWrapper">
-            <div className="visualizationColumn">
+            <div className="visualizationColumn" id="verificationVis">
               <p>Resultado de verificación</p>
               <div className="visualizationGroupWrapper">
                 {Object.entries(verificationGroups).map(([value, claims]) => (
@@ -304,9 +304,12 @@ function App() {
                                   `claim-${d.index}`
                                 );
                                 window.scrollTo({
-                                  top: div?.getBoundingClientRect().y,
+                                  top:
+                                    (div?.getBoundingClientRect().top ?? 0) +
+                                    window.scrollY,
                                   behavior: "smooth",
                                 });
+                                setLastClick("verificationVis");
                               }}
                             >
                               <img src={getAvatar(d.verification)} />
@@ -366,7 +369,7 @@ function App() {
               </div>
             </div>
             <Separator className="separator" />
-            <div className="visualizationColumn">
+            <div className="visualizationColumn" id="sourceVis">
               <p>Fuente de afirmación</p>
               <div className="visualizationGroupWrapper">
                 {sourceGroups.map(([value, claims]) => (
@@ -439,9 +442,12 @@ function App() {
                                   `claim-${d.index}`
                                 );
                                 window.scrollTo({
-                                  top: div?.getBoundingClientRect().y,
+                                  top:
+                                    (div?.getBoundingClientRect().top ?? 0) +
+                                    window.scrollY,
                                   behavior: "smooth",
                                 });
+                                setLastClick("sourceVis");
                               }}
                             >
                               <img src={getAvatar(d.verification)} />
@@ -501,7 +507,7 @@ function App() {
               </div>
             </div>
             <Separator className="separator" />
-            <div className="visualizationColumn">
+            <div className="visualizationColumn" id="preferenceVis">
               <p>Preferencia plebiscito</p>
               <div className="visualizationGroupWrapper">
                 {Object.entries(preferenceGroups).map(([value, claims]) => (
@@ -574,9 +580,12 @@ function App() {
                                   `claim-${d.index}`
                                 );
                                 window.scrollTo({
-                                  top: div?.getBoundingClientRect().y,
+                                  top:
+                                    (div?.getBoundingClientRect().top ?? 0) +
+                                    window.scrollY,
                                   behavior: "smooth",
                                 });
+                                setLastClick("preferenceVis");
                               }}
                             >
                               <img src={getAvatar(d.verification)} />

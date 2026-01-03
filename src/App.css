@@ -65,12 +65,16 @@
   );
 
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-m);
-  padding: var(--space-s);
   margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 400px) {
+  .visualizationWrapper {
+    --amount: 5;
+  }
 }
 
 .separator {
