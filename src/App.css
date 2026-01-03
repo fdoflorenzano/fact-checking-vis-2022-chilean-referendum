@@ -1,24 +1,66 @@
 #root {
-  max-width: 1000px;
-  margin: 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
+  font-size: var(--text-body-m);
+}
+
+.wrapper {
+  width: 100%;
+  align-self: stretch;
+}
+
+.end {
+  background: black;
+  height: var(--space-l);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-l);
+}
+
+.titleWrapper {
+  background: var(--primary-color);
 }
 
 .title {
-  max-width: 20ch;
   font-family: "Montserrat";
   font-weight: 700;
   text-align: center;
   align-self: center;
+  color: white;
+  font-size: var(--text-title-l);
+  margin: var(--space-2xl) 0;
+  max-width: var(--measure-m);
+}
+
+.intro,
+.outtro {
+  padding: var(--space-l) 0;
+}
+
+.backToTop {
+  position: fixed;
+  bottom: var(--space-xs);
+  right: var(--space-xs);
+  width: var(--space-l);
+  height: var(--space-l);
+  background: var(--primary-color);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .visualizationWrapper {
   width: 100%;
   height: var(--height);
   position: relative;
-  margin: 30px 0;
+  margin: var(--space-l) 0;
   overflow: hidden;
 }
 
@@ -44,13 +86,53 @@
 }
 
 .tooltipContent {
-  width: 500px;
-  border: #111 solid 1px;
-  border-radius: 3px;
+  border: var(--primary-color) solid 1px;
+  border-radius: var(--border-radius);
   background-color: white;
-  padding: 10px;
+  padding: var(--space-s);
+  display: flex;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+.verificationWrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--text-body-s);
+}
+
+.emphasisText {
+  color: var(--primary-color);
+}
+
+.tooltipText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  max-width: var(--measure-l);
+}
+
+.tooltipContent .source {
+  font-size: var(--text-body-xs);
+}
+
+.tooltipText {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tooltipContent .instruction {
+  color: gray;
+  font-size: var(--text-body-xs);
+}
+
+.verificationAvatar {
+  width: var(--space-xl);
+  height: var(--space-xl);
 }
 
 .verificationTick {
@@ -100,4 +182,68 @@
   top: var(--y);
   left: var(--x);
   transform: var(--transform);
+}
+
+.claimList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--space-s);
+}
+
+.claim {
+  margin-bottom: 0;
+  min-width: 350px;
+  flex: 1;
+  display: flex;
+  gap: var(--space-m);
+  flex-direction: column;
+  border: 1px solid gray;
+  padding: var(--space-m);
+  border-radius: var(--border-radius);
+  border-color: var(--primary-color);
+}
+
+.claim h2 {
+  font-size: var(--text-title-s);
+  font-weight: normal;
+  margin: 0;
+}
+
+.claimWrapper {
+  display: flex;
+  gap: var(--space-m);
+  min-height: 200px;
+}
+
+.claimWrapper .verificationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.claimWrapper .verificationWrapper img {
+  width: var(--space-3xl);
+  height: var(--space-3xl);
+}
+
+.claimWrapper blockquote {
+  margin: 0;
+  font-size: var(--text-body-s);
+}
+
+.claimWrapper .textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.claimWrapper .textWrapper .source {
+  font-size: var(--text-body-xs);
+  align-self: flex-end;
+}
+
+.claim .result {
+  font-size: var(--text-body-s);
 }

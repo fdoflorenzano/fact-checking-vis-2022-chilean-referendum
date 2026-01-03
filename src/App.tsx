@@ -10,6 +10,7 @@ import v2 from "./assets/v2.svg";
 import v3 from "./assets/v3.svg";
 import v4 from "./assets/v4.svg";
 import v5 from "./assets/v5.svg";
+// import v6 from "./assets/v6.svg";
 
 import "./App.css";
 
@@ -32,7 +33,7 @@ const [DEFAULT_WIDTH, DEFAULT_HEIGHT] = [1200, 350];
 const RADIUS = 12;
 const MAX_APP_WIDTH = 1000;
 const MIN_APP_WIDTH = 320;
-const APP_X_PADDING = 0;
+const APP_X_PADDING = 32;
 
 const parseTime = d3.utcParse("%Y.%m.%d");
 const formatTime = d3.utcFormat("%Y.%m.%d");
@@ -59,6 +60,18 @@ const verificationValues = [
   "inaccurate",
   "true",
 ];
+
+// const verificationExplainers = {
+//   false:
+//     "La afirmación ha mostrado ser falsa tras ser verificada con las fuentes disponibles y expert@s.",
+//   creative:
+//     "La afirmación puede nacer de un dato verificable o de un hecho constatable, pero se exageran o combinan con falsedades.",
+//   misleading:
+//     "La afirmación contiene datos verificables, pero la interpretación que se hace de ellos, el contexto en que se sitúan, las proyecciones que se realizan con ellos o las correlaciones no son verificables.",
+//   inaccurate:
+//     "En términos generales la afirmación es correcta, debido a que se puede verificar con las fuentes disponibles y experto/as, pero hay datos imprecisos, omitidos o falta contexto.",
+//   true: "La afirmación expresada es correcta al ser verificada con las fuentes disponibles y expert@s.",
+// };
 const sourceValues = [
   "Instagram",
   "TikTok",
@@ -274,338 +287,304 @@ function App() {
   }, [scale]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <h1 className="title">Verificaciones de Plebiscito de Salida 2022</h1>
+    <>
+      <div className="wrapper end"></div>
 
-      <button
-        style={{
-          position: "fixed",
-          bottom: "10px",
-          right: "10px",
-          width: "40px",
-          height: "40px",
-          background: "var(--primary-color)",
-          padding: "0",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
-      >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34H20H18ZM21.4142 5.58579C20.6332 4.80474 19.3668 4.80474 18.5858 5.58579L5.85786 18.3137C5.07682 19.0948 5.07682 20.3611 5.85786 21.1421C6.63891 21.9232 7.90524 21.9232 8.68629 21.1421L20 9.82843L31.3137 21.1421C32.0948 21.9232 33.3611 21.9232 34.1421 21.1421C34.9232 20.3611 34.9232 19.0948 34.1421 18.3137L21.4142 5.58579ZM20 34H22V7H20H18V34H20Z"
-            fill="white"
-          />
-        </svg>
-      </button>
+      <div className="wrapper titleWrapper">
+        <div className="container">
+          <h1 className="title">Verificaciones de Plebiscito de Salida 2022</h1>
+        </div>
+      </div>
 
-      <p>
-        Verificationes realizadas por{" "}
-        <a
-          href="https://factchecking.cl/plebiscito-de-salida-2022/verificaciones/"
-          rel="noreferrer"
-          target="_blank"
-        >
-          Factchecking.cl
-        </a>
-        . Organiza por:{" "}
-        <select
-          value={scale}
-          onChange={(e) => setScale(e.target.value as Scale)}
-        >
-          <option value="verification">Verificaciones</option>
-          <option value="source">Fuente</option>
-          <option value="time">Fecha de publicación</option>
-        </select>
-      </p>
-
-      <div
-        className="visualizationWrapper"
-        style={
-          {
-            "--height": `${dimensions.height}px`,
-          } as React.CSSProperties
-        }
-      >
-        {nodes.map((v, index) => (
-          <Tooltip.Provider delayDuration={0} key={v.fact}>
-            <Tooltip.Root>
-              <Tooltip.Trigger asChild>
-                <div
-                  className="node"
-                  style={
-                    {
-                      "--y": `${v.y ?? 0 - RADIUS}px`,
-                      "--x": `${v.x ?? 0 - RADIUS}px`,
-                      "--size": `${RADIUS * 2}px`,
-                    } as React.CSSProperties
-                  }
-                  onClick={() => {
-                    const div = document.getElementById(`fact-${index}`);
-                    window.scrollTo({
-                      top: div?.getBoundingClientRect().y,
-                      behavior: "smooth",
-                    });
-                  }}
-                >
-                  <img
-                    src={getAvatar(v.verification)}
-                    width={RADIUS * 2}
-                    height={RADIUS * 2}
-                  />
-                </div>
-              </Tooltip.Trigger>
-              <Tooltip.Portal>
-                <Tooltip.Content
-                  className="tooltipContent"
-                  sideOffset={10}
-                  side="top"
-                >
-                  <p>
-                    Afirmación #{index + 1} sobre{" "}
-                    <strong style={{ color: "var(--primary-color)" }}>
-                      {" "}
-                      {v.categoryRaw}
-                    </strong>{" "}
-                    <span
-                      style={{
-                        color: "black",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        alignSelf: "end",
-                        padding: "3px",
-                        borderRadius: "3px",
-                        fontSize: "12px",
-                        marginLeft: "5px",
-                      }}
-                    >
-                      <strong>{v.verificationRaw}</strong>
-                      <img
-                        style={{ width: "25px", height: "25px" }}
-                        src={getAvatar(v.verification)}
-                      ></img>
-                    </span>
-                  </p>
-
-                  <p>
-                    {sourceMap[(v.source?.medium ?? v.source?.platform)!]} (
-                    {v.date == null ? "fecha desconocida" : v.date})
-                  </p>
-                  <p style={{ color: "gray", fontSize: "12px" }}>
-                    Haz clic para revisar verificación.
-                  </p>
-                </Tooltip.Content>
-              </Tooltip.Portal>
-            </Tooltip.Root>
-          </Tooltip.Provider>
-        ))}
-
-        {scale === "verification" &&
-          verificationValues.map((v) => (
-            <p
-              key={"veri-" + v}
-              className="verificationTick"
-              style={
-                {
-                  "--y":
-                    orientation === "horizontal"
-                      ? `${20}px`
-                      : `${getPosition(v)}px`,
-                  "--x":
-                    orientation === "horizontal"
-                      ? `${getPosition(v)}px`
-                      : `${20}px`,
-                  "--transform":
-                    orientation === "horizontal" ? `translateX(-50%)` : "",
-                } as React.CSSProperties
-              }
+      <div className="wrapper">
+        <div className="container">
+          <button
+            className="backToTop"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              {rawVerificationMap[v]}
-              <img className="avatar" src={getAvatar(v)} />
-            </p>
-          ))}
+              <path
+                d="M18 34C18 35.1046 18.8954 36 20 36C21.1046 36 22 35.1046 22 34H20H18ZM21.4142 5.58579C20.6332 4.80474 19.3668 4.80474 18.5858 5.58579L5.85786 18.3137C5.07682 19.0948 5.07682 20.3611 5.85786 21.1421C6.63891 21.9232 7.90524 21.9232 8.68629 21.1421L20 9.82843L31.3137 21.1421C32.0948 21.9232 33.3611 21.9232 34.1421 21.1421C34.9232 20.3611 34.9232 19.0948 34.1421 18.3137L21.4142 5.58579ZM20 34H22V7H20H18V34H20Z"
+                fill="white"
+              />
+            </svg>
+          </button>
 
-        {scale === "source" &&
-          sourceValues.map((v) => (
-            <p
-              key={"source-" + v}
-              className="sourceTick"
-              style={
-                {
-                  "--y":
-                    orientation === "horizontal"
-                      ? `${20}px`
-                      : `${getPosition(v)}px`,
-                  "--x":
-                    orientation === "horizontal"
-                      ? `${getPosition(v) + 5}px`
-                      : `${20}px`,
-                  "--transform":
-                    orientation === "horizontal" ? `translateX(-50%)` : "",
-                } as React.CSSProperties
-              }
+          <p className="intro">
+            Las siguientes son las verificaciones, realizadas por el equipo de{" "}
+            <a
+              href="https://factchecking.cl/plebiscito-de-salida-2022/verificaciones/"
+              rel="noreferrer"
+              target="_blank"
             >
-              {sourceMap[v]}
-            </p>
-          ))}
+              Factchecking.cl
+            </a>
+            , sobre afirmaciones que circularon diversas plataformas sobre el
+            proceso constituyente. Organiza por:{" "}
+            <select
+              value={scale}
+              onChange={(e) => setScale(e.target.value as Scale)}
+            >
+              <option value="verification">Verificaciones</option>
+              <option value="source">Fuente</option>
+              <option value="time">Fecha de publicación</option>
+            </select>
+          </p>
 
-        {scale === "time" &&
-          timeScale.ticks(5).map((v) => (
-            <p
-              key={"time-" + v}
-              className="timeTick"
-              style={
-                {
-                  "--y":
-                    orientation === "horizontal"
-                      ? `${20}px`
-                      : `${getPosition(formatTime(v))}px`,
-                  "--x":
-                    orientation === "horizontal"
-                      ? `${getPosition(formatTime(v)) + 5}px`
-                      : `${20}px`,
-                  "--transform":
-                    orientation === "horizontal" ? `translateX(-50%)` : "",
-                } as React.CSSProperties
-              }
-            >
-              {monthMap[v.getMonth() + 1]}
-            </p>
-          ))}
-        {scale === "time" && (
-          <p
-            key={"time-unk"}
-            className="timeTick"
+          <div
+            className="visualizationWrapper"
             style={
               {
-                "--y":
-                  orientation === "horizontal"
-                    ? `${20}px`
-                    : `${getPosition("")}px`,
-                "--x":
-                  orientation === "horizontal"
-                    ? `${getPosition("") + 5}px`
-                    : `${20}px`,
-                "--transform":
-                  orientation === "horizontal" ? `translateX(-50%)` : "",
+                "--height": `${dimensions.height}px`,
               } as React.CSSProperties
             }
           >
-            Fecha desconocida
-          </p>
-        )}
-      </div>
+            {nodes.map((v, index) => (
+              <Tooltip.Provider delayDuration={0} key={v.fact}>
+                <Tooltip.Root>
+                  <Tooltip.Trigger asChild>
+                    <div
+                      className="node"
+                      style={
+                        {
+                          "--y": `${v.y ?? 0 - RADIUS}px`,
+                          "--x": `${v.x ?? 0 - RADIUS}px`,
+                          "--size": `${RADIUS * 2}px`,
+                        } as React.CSSProperties
+                      }
+                      onClick={() => {
+                        const div = document.getElementById(`claim-${index}`);
+                        window.scrollTo({
+                          top: div?.getBoundingClientRect().y,
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      <img
+                        src={getAvatar(v.verification)}
+                        width={RADIUS * 2}
+                        height={RADIUS * 2}
+                      />
+                    </div>
+                  </Tooltip.Trigger>
+                  <Tooltip.Portal>
+                    <Tooltip.Content
+                      className="tooltipContent"
+                      sideOffset={8}
+                      side="top"
+                    >
+                      <div className="verificationWrapper">
+                        <img
+                          className="verificationAvatar"
+                          src={getAvatar(v.verification)}
+                        ></img>
+                        <span>
+                          <strong>{v.verificationRaw}</strong>
+                        </span>
+                      </div>
+                      <div className="tooltipText">
+                        <div className="category">
+                          <p>
+                            Afirmación <strong>#{index + 1}</strong> sobre{" "}
+                            <strong className="emphasisText">
+                              {" "}
+                              {v.categoryRaw}
+                            </strong>{" "}
+                          </p>
+                          <p className="source">
+                            {
+                              sourceMap[
+                                (v.source?.medium ?? v.source?.platform)!
+                              ]
+                            }{" "}
+                            (
+                            {v.date == null
+                              ? "fecha desconocida"
+                              : readableTime(parseTime(v.date!)!)}
+                            )
+                          </p>
+                        </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          maxWidth: "100%",
-          gap: "50px",
-        }}
-      >
-        {nodes.map((n, i) => (
-          <div
-            style={{
-              marginBottom: "70px",
-              minWidth: "350px",
-              flex: "1",
-              display: "flex",
-              flexDirection: "column",
-              border: "1px solid gray",
-              padding: "10px",
-              borderRadius: "3px",
-              borderColor: "var(--primary-color)",
-            }}
-            id={`fact-${i}`}
-          >
-            <p style={{ fontWeight: "bold" }}>
-              Afirmación #{i + 1} sobre{" "}
-              <span style={{ color: "var(--primary-color)" }}>
-                {" "}
-                {n.categoryRaw}
-              </span>
-            </p>
+                        <p className="instruction">
+                          Haz clic para revisar verificación.
+                        </p>
+                      </div>
+                    </Tooltip.Content>
+                  </Tooltip.Portal>
+                </Tooltip.Root>
+              </Tooltip.Provider>
+            ))}
 
-            <div style={{ position: "relative" }}>
-              <blockquote
-                style={{
-                  marginLeft: "0",
-                  marginBottom: "30px",
-                  fontStyle: "italic",
-                }}
-              >
-                {n.fact}
-              </blockquote>
+            {scale === "verification" &&
+              verificationValues.map((v) => (
+                <p
+                  key={"veri-" + v}
+                  className="verificationTick"
+                  style={
+                    {
+                      "--y":
+                        orientation === "horizontal"
+                          ? `${20}px`
+                          : `${getPosition(v)}px`,
+                      "--x":
+                        orientation === "horizontal"
+                          ? `${getPosition(v)}px`
+                          : `${20}px`,
+                      "--transform":
+                        orientation === "horizontal" ? `translateX(-50%)` : "",
+                    } as React.CSSProperties
+                  }
+                >
+                  {rawVerificationMap[v]}
+                  <img className="avatar" src={getAvatar(v)} />
+                </p>
+              ))}
+
+            {scale === "source" &&
+              sourceValues.map((v) => (
+                <p
+                  key={"source-" + v}
+                  className="sourceTick"
+                  style={
+                    {
+                      "--y":
+                        orientation === "horizontal"
+                          ? `${20}px`
+                          : `${getPosition(v)}px`,
+                      "--x":
+                        orientation === "horizontal"
+                          ? `${getPosition(v) + 5}px`
+                          : `${20}px`,
+                      "--transform":
+                        orientation === "horizontal" ? `translateX(-50%)` : "",
+                    } as React.CSSProperties
+                  }
+                >
+                  {sourceMap[v]}
+                </p>
+              ))}
+
+            {scale === "time" &&
+              timeScale.ticks(5).map((v) => (
+                <p
+                  key={"time-" + v}
+                  className="timeTick"
+                  style={
+                    {
+                      "--y":
+                        orientation === "horizontal"
+                          ? `${20}px`
+                          : `${getPosition(formatTime(v))}px`,
+                      "--x":
+                        orientation === "horizontal"
+                          ? `${getPosition(formatTime(v)) + 5}px`
+                          : `${20}px`,
+                      "--transform":
+                        orientation === "horizontal" ? `translateX(-50%)` : "",
+                    } as React.CSSProperties
+                  }
+                >
+                  {monthMap[v.getMonth() + 1]}
+                </p>
+              ))}
+            {scale === "time" && (
               <p
-                style={{
-                  position: "absolute",
-                  bottom: "0",
-                  right: "0",
-                  display: "flex",
-                  alignItems: "center",
-                  color: "black",
-                  padding: "3px",
-                  borderRadius: "5px",
-                  fontSize: "12px",
-                  margin: "0",
-                }}
+                key={"time-unk"}
+                className="timeTick"
+                style={
+                  {
+                    "--y":
+                      orientation === "horizontal"
+                        ? `${20}px`
+                        : `${getPosition("")}px`,
+                    "--x":
+                      orientation === "horizontal"
+                        ? `${getPosition("") + 5}px`
+                        : `${20}px`,
+                    "--transform":
+                      orientation === "horizontal" ? `translateX(-50%)` : "",
+                  } as React.CSSProperties
+                }
               >
-                <strong>{n.verificationRaw}</strong>
-                <img
-                  style={{ width: "25px", height: "25px" }}
-                  src={getAvatar(n.verification)}
-                ></img>
+                Fecha desconocida
               </p>
-            </div>
-
-            <p>
-              {sourceMap[(n.source?.medium ?? n.source?.platform)!]} (
-              {n.date == null
-                ? "fecha desconocida"
-                : readableTime(parseTime(n.date!)!)}
-              )
-            </p>
-            <p>
-              {n.articleSubtitle} Para más detalles, revisa el{" "}
-              <a href={n.url} rel="noreferrer" target="_blank">
-                artículo de verificación.
-              </a>
-            </p>
+            )}
           </div>
-        ))}
+
+          <div className="claimList">
+            {nodes.map((n, i) => (
+              <div className="claim">
+                <h2 id={`claim-${i}`}>
+                  Afirmación <strong> #{i + 1}</strong> sobre{" "}
+                  <strong className="emphasisText"> {n.categoryRaw}</strong>
+                </h2>
+
+                <div className="claimWrapper">
+                  <div className="verificationWrapper">
+                    <img src={getAvatar(n.verification)}></img>
+
+                    <p>
+                      <strong>{n.verificationRaw}</strong>
+                    </p>
+                  </div>
+
+                  <div className="textWrapper">
+                    <blockquote>{n.fact}</blockquote>
+                    <p className="source">
+                      {sourceMap[(n.source?.medium ?? n.source?.platform)!]} (
+                      {n.date == null
+                        ? "fecha desconocida"
+                        : readableTime(parseTime(n.date!)!)}
+                      )
+                    </p>
+                  </div>
+                </div>
+
+                <p className="result">
+                  {n.articleSubtitle} Para más detalles, revisa el{" "}
+                  <a href={n.url} rel="noreferrer" target="_blank">
+                    artículo de verificación.
+                  </a>
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="outtro">
+            Sitio creado por
+            <a
+              href="https://github.com/fdoflorenzano"
+              rel="noreferrer"
+              target="_blank"
+            >
+              @fdoflorenzano
+            </a>
+            . Todos los datos fueron extraidos de{" "}
+            <a
+              href="https://factchecking.cl/plebiscito-de-salida-2022/verificaciones/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Factchecking.cl
+            </a>
+            .
+          </p>
+        </div>
       </div>
 
-      <p>
-        Creado por{" "}
-        <a
-          href="https://github.com/fdoflorenzano"
-          rel="noreferrer"
-          target="_blank"
-        >
-          @fdoflorenzano
-        </a>
-        .
-      </p>
-    </div>
+      <div className="wrapper end"></div>
+    </>
   );
 }
 

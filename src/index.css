@@ -30,6 +30,34 @@
   --primary-color: #3a9bdf;
   --emphasis-background: #1c1c1c;
 
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 80px;
+
+  --text-title-l: 36px;
+  --text-title-m: 24px;
+  --text-title-s: 16px;
+
+  --text-body-xl: 24px;
+  --text-body-l: 20px;
+  --text-body-m: 16px;
+  --text-body-s: 14px;
+  --text-body-xs: 12px;
+
+  --measure-xs: 8ch;
+  --measure-s: 12ch;
+  --measure-m: 24ch;
+  --measure-l: 36ch;
+  --measure-xl: 70ch;
+  --measure-2xl: 100ch;
+
+  --border-radius: 3px;
+
   font-family: "Merriweather", Arial, sans-serif;
   line-height: 1.5;
 
@@ -37,6 +65,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
 }
 
 a {
@@ -78,4 +113,8 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+:where(p) {
+  margin: 0;
 }
