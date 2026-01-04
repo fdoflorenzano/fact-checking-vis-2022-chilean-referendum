@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 import fs from "fs";
-import type { ExtendedFact, RawFact } from "./types";
+import type { ExtendedClaim, RawClaim } from "./types";
 
 dotenv.config({ path: [".env"] });
 
@@ -12,11 +12,11 @@ const prompt = `
 A continuación te entregaré un artículo que verifica una afirmación que circula en redes sociales.
 Por favor resume el artículo, extrae la fecha de la afirmación que se analiza, la fuente de donde la afirmación originalmente se compartió, y los autores del artículo.
 Por favor retorna todo en formato JSON, con los atributos 'resumen', 'fecha', 'fuente' y 'autores'.
-En el caso de la fecha, de no poder detectarla explicitamente, marcarla como null, y de poder detectarla, escribirla en formato YYYY.MM.DD.
+En el caso de la fecha, de no poder detectarla explícitamente, marcarla como null, y de poder detectarla, escribirla en formato YYYY.MM.DD.
 En el caso de la la fuente, de ser una red social, especificar cual y el usuario autor.
 `;
 
-async function analyzeFact(fact: RawFact): Promise<{
+async function analyzeClaim(claim: RawClaim): Promise<{
   summary?: string;
   date?: string;
   authors?: string[];
@@ -24,7 +24,7 @@ async function analyzeFact(fact: RawFact): Promise<{
 }> {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
-    contents: `${prompt} \n\n ${fact.articleBody}`,
+    contents: `${prompt} \n\n ${claim.articleBody}`,
   });
   const rawResponse = response.text ?? "";
   const formatted = rawResponse.match(/```json([\S\s]*)```/g)?.[0];
@@ -43,26 +43,26 @@ async function analyzeFact(fact: RawFact): Promise<{
   }
 }
 
-async function loadFactPages() {
-  const facts: RawFact[] = JSON.parse(
-    fs.readFileSync("data/facts.json", "utf-8")
+async function loadClaimPages() {
+  const claims: RawClaim[] = JSON.parse(
+    fs.readFileSync("data/claims.json", "utf-8")
   );
-  return facts;
+  return claims;
 }
 
-const facts = await loadFactPages();
-const extendedFacts: ExtendedFact[] = [];
+const claims = await loadClaimPages();
+const extendedClaims: ExtendedClaim[] = [];
 
-for (let index = 0; index < facts.length; index++) {
-  const fact = facts[index];
-  console.log(`Analyzing (${index + 1}/${facts.length}) ${fact.fact}...`);
-  const newData = await analyzeFact(fact);
+for (let index = 0; index < claims.length; index++) {
+  const claim = claims[index];
+  console.log(`Extending (${index + 1}/${claims.length}) ${claim.claim}...`);
+  const newData = await analyzeClaim(claim);
   console.log();
 
-  extendedFacts.push({ ...fact, ...newData });
+  extendedClaims.push({ ...claim, ...newData });
 }
 
 fs.writeFileSync(
-  "data/extended-facts.json",
-  JSON.stringify(extendedFacts, null, 4)
+  "data/extended-claims.json",
+  JSON.stringify(extendedClaims, null, 4)
 );

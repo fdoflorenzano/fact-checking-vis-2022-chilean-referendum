@@ -1,0 +1,22 @@
+.titleWrapper {
+  background: var(--primary-color);
+}
+
+.title {
+  font-family: "Montserrat";
+  font-weight: 700;
+  text-align: center;
+  align-self: center;
+  color: white;
+  font-size: var(--text-title-l);
+  margin: var(--space-2xl) 0;
+  max-width: var(--measure-m);
+}
+
+.intro {
+  margin: var(--space-l) 0;
+}
+
+.outtro {
+  margin: var(--space-3xl) 0;
+}

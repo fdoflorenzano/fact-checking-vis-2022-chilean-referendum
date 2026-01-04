@@ -1,0 +1,92 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--space-s);
+}
+
+.claim {
+  width: 100%;
+  display: flex;
+  gap: var(--space-2xl);
+  justify-content: space-between;
+  border: 1px solid gray;
+  padding: var(--space-m);
+  border-radius: var(--border-radius);
+  border-color: var(--primary-color);
+}
+
+.header {
+  display: flex;
+  gap: var(--space-m);
+  flex-direction: column;
+}
+
+.claim h2,
+.resultHeader {
+  font-size: var(--text-title-s);
+  font-weight: normal;
+  margin: 0;
+}
+
+.claimWrapper {
+  display: flex;
+  gap: var(--space-m);
+}
+
+.result {
+  flex-shrink: 0;
+  width: var(--measure-l);
+  display: flex;
+  gap: var(--space-xs);
+  flex-direction: column;
+}
+
+.claimWrapper .verificationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.claimWrapper .verificationWrapper img {
+  width: var(--space-3xl);
+  height: var(--space-3xl);
+}
+
+.claimWrapper blockquote {
+  margin: 0;
+  font-size: var(--text-body-s);
+  font-style: italic;
+}
+
+.claimWrapper .textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.claimWrapper .textWrapper .source {
+  font-size: var(--text-body-xs);
+  align-self: flex-end;
+}
+
+.claim .result {
+  font-size: var(--text-body-s);
+}
+
+@media (max-width: 700px) {
+  .claim {
+    flex-direction: column;
+  }
+
+  .result {
+    width: initial;
+  }
+}
+
+@media (max-width: 400px) {
+  .claimWrapper {
+    flex-direction: column-reverse;
+  }
+}

@@ -9,13 +9,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "scrape": "tsx ./scripts/scrapper.ts",
-    "extend": "tsx ./scripts/extendData.ts"
+    "data:scrape": "tsx ./scripts/scrapper.ts",
+    "data:extend": "tsx ./scripts/extend-data.ts",
+    "data:clean": "tsx ./scripts/clean-data.ts"
   },
   "dependencies": {
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-tooltip": "^1.2.8",
-    "@uidotdev/usehooks": "^2.4.1",
+    "clsx": "^2.1.1",
     "d3": "^7.9.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

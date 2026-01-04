@@ -1,0 +1,12 @@
+.root {
+  position: fixed;
+  bottom: var(--space-s);
+  right: var(--space-s);
+  width: var(--space-xl);
+  height: var(--space-xl);
+  background: var(--primary-color);
+  padding: var(--space-xs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

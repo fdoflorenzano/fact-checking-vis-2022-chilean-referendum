@@ -1,0 +1,8 @@
+.root {
+  background-color: white;
+  padding: var(--space-4xs);
+  display: flex;
+  gap: var(--space-s);
+  align-items: center;
+  font-size: var(--text-body-xs);
+}

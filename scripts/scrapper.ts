@@ -1,6 +1,6 @@
 import * as cheerio from "cheerio";
 import fs from "fs";
-import type { BaseFact, RawFact } from "./types";
+import type { BaseClaim, RawClaim } from "./types";
 
 const verificationMap: Record<string, string> = {
   Verdadero: "true",
@@ -21,32 +21,38 @@ async function parsePage(url: string) {
   return cheerio.load(html);
 }
 
-async function getFacts() {
+async function getClaims() {
   const $ = await parsePage(URL);
 
-  const facts: BaseFact[] = [];
+  const claims: BaseClaim[] = [];
 
-  // Get each fact
+  // Get each claim
   $(".card > a").each((_i, el) => {
     // Get raw data points
     const url = ($(el).attr()?.["href"] ?? "").trim();
-    const fact = $(el).find(".big-quote").text().trim();
+    const claim = $(el).find(".big-quote").text().trim();
     const verificationRaw = $(el).find(".label").text().trim();
     const verification = verificationMap[verificationRaw] ?? "?";
     const categoryRaw = $(el).find(".attribution").text().trim();
 
     // Add to the array
-    facts.push({ fact, url, verification, verificationRaw, categoryRaw });
+    claims.push({
+      claim,
+      url,
+      verification,
+      verificationRaw,
+      categoryRaw,
+    });
   });
 
-  console.log(`Found ${facts.length} facts listed.\n`);
+  console.log(`Found ${claims.length} claims listed.\n`);
 
-  const factPages: RawFact[] = [];
+  const claimPages: RawClaim[] = [];
 
-  for (let index = 0; index < facts.length; index++) {
-    const fact = facts[index];
-    const { url } = fact;
-    console.log(`Scraping (${index + 1}/${facts.length}) ${url}...`);
+  for (let index = 0; index < claims.length; index++) {
+    const claim = claims[index];
+    const { url } = claim;
+    console.log(`Scraping (${index + 1}/${claims.length}) ${url}...`);
     const article$ = await parsePage(url);
 
     const title = article$("h1").text().trim();
@@ -58,8 +64,8 @@ async function getFacts() {
       .trim()
       .replaceAll("\t", "");
 
-    factPages.push({
-      ...fact,
+    claimPages.push({
+      ...claim,
       articleTitle: title,
       articleSubtitle: subtitle,
       articleBody: article,
@@ -68,17 +74,17 @@ async function getFacts() {
   console.log();
 
   for (const verificationValue of Object.values(verificationMap)) {
-    const filtered = factPages.filter(
+    const filtered = claimPages.filter(
       (f) => f.verification === verificationValue
     );
     console.log(
-      `Found ${filtered.length} facts assigned as '${verificationValue}'.`
+      `Found ${filtered.length} claims assigned as '${verificationValue}'.`
     );
   }
 
-  return factPages;
+  return claimPages;
 }
 
-const facts = await getFacts();
+const claims = await getClaims();
 
-fs.writeFileSync("data/facts.json", JSON.stringify(facts, null, 4));
+fs.writeFileSync("data/claims.json", JSON.stringify(claims, null, 4));

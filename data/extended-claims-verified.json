@@ -1,6 +1,6 @@
 [
   {
-    "fact": "“Es la Constitución que vamos a cambiar dijo, capaz a alguien se le ocurra hacer un himno nuevo y por qué no otra bandera😔porque según ella el himno nos divide 😔🙄😞😠\", video viral de Tik Tok.",
+    "claim": "“Es la Constitución que vamos a cambiar dijo, capaz a alguien se le ocurra hacer un himno nuevo y por qué no otra bandera😔porque según ella el himno nos divide 😔🙄😞😠\", video viral de Tik Tok.",
     "url": "https://factchecking.cl/user-review/es-falso-que-con-la-propuesta-de-nueva-constitucion-se-vaya-a-cambiar-el-himno-o-la-bandera/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -18,7 +18,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“YO VOTARÉ APRUEBO EN EL PLEBISCITO DE SALIDA DEL 4 DE SEPTIEMBRE DE 2022 ¿POR QUÉ? Porque establece por primera vez a nivel constitucional de manera explícita que las personas con discapacidad son titulares de derechos establecidos en la constitución y tratados internacionales”, usuario en Twitter @tom_ratm...\"",
+    "claim": "“YO VOTARÉ APRUEBO EN EL PLEBISCITO DE SALIDA DEL 4 DE SEPTIEMBRE DE 2022 ¿POR QUÉ? Porque establece por primera vez a nivel constitucional de manera explícita que las personas con discapacidad son titulares de derechos establecidos en la constitución y tratados internacionales”, usuario en Twitter @tom_ratm...\"",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-es-la-primera-en-la-historia-de-chile-que-reconoce-a-las-personas-con-discapacidad-como-titulares-de-derechos-y-les-otorga-estatus-de-proteccion/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -36,7 +36,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Se supone que la nueva constitución es inclusiva sin embargo en la realidad es todo lo contrario al considerarnos a los discapacitados como \"sujetos de protección\" dejándonos como ciudadanos de 2 categoría no era esto lo que soñaba al votar apruebo y así mejorar calidad de vida”, Francisco Solari en Twitte...\"",
+    "claim": "“Se supone que la nueva constitución es inclusiva sin embargo en la realidad es todo lo contrario al considerarnos a los discapacitados como \"sujetos de protección\" dejándonos como ciudadanos de 2 categoría no era esto lo que soñaba al votar apruebo y así mejorar calidad de vida”, Francisco Solari en Twitte...\"",
     "url": "https://factchecking.cl/user-review/la-propuesta-constitucional-considera-a-las-personas-con-discapacidad-como-titulares-de-derechos-y-les-da-un-estatuto-de-proteccion/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -54,7 +54,7 @@
     "preference": "neutral"
   },
   {
-    "fact": "\"Alegre rebeldía del #Apruebo en Viña del Mar\", ex diputado comunista, Hugo Gutiérrez, a través de su cuenta de Twitter.",
+    "claim": "\"Alegre rebeldía del #Apruebo en Viña del Mar\", ex diputado comunista, Hugo Gutiérrez, a través de su cuenta de Twitter.",
     "url": "https://factchecking.cl/user-review/video-de-skaters-difundido-por-twitter-no-corresponde-a-una-manifestacion-por-el-apruebo/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -72,7 +72,7 @@
     "preference": "neutral"
   },
   {
-    "fact": "“Mueren los derechos de agua apenas se apruebe la nueva Constitución. Dejan de ser transferibles, no se podrán comprar ni vender”, video de Asociación Canal Maule.",
+    "claim": "“Mueren los derechos de agua apenas se apruebe la nueva Constitución. Dejan de ser transferibles, no se podrán comprar ni vender”, video de Asociación Canal Maule.",
     "url": "https://factchecking.cl/user-review/con-la-propuesta-de-constitucion-el-derecho-de-aprovechamiento-de-aguas-se-reemplazaria-por-la-autorizacion-administrativa-dejando-de-ser-comercializables/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -90,7 +90,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Artículo 49. RECONOCIMIENTO DEL TRABAJO DOMÉSTICO Y DE CUIDADOS\n\nEl trabajo doméstico y de cuidado aporta el 21,8 del PIB. El 67% de este trabajo lo realizan mujeres, sin descanso ni derechos laborales. Con la nueva Constitución, los trabajos domésticos y de cuidados ser...\"",
+    "claim": "\"Artículo 49. RECONOCIMIENTO DEL TRABAJO DOMÉSTICO Y DE CUIDADOS\n\nEl trabajo doméstico y de cuidado aporta el 21,8 del PIB. El 67% de este trabajo lo realizan mujeres, sin descanso ni derechos laborales. Con la nueva Constitución, los trabajos domésticos y de cuidados ser...\"",
     "url": "https://factchecking.cl/user-review/el-trabajo-domestico-no-remunerado-es-una-actividad-economica-y-representa-el-256-del-pib-ampliado/",
     "verification": "inaccurate",
     "verificationRaw": "Impreciso",
@@ -108,7 +108,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Quieren que solo el Estado pueda tener programas de reinserción. Dejando fuera a las fundaciones”, franja televisiva del Rechazo.",
+    "claim": "“Quieren que solo el Estado pueda tener programas de reinserción. Dejando fuera a las fundaciones”, franja televisiva del Rechazo.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-establece-que-es-el-estado-el-encargado-de-desarrollar-programas-de-reinsercion-pero-no-explicita-que-puedan-existir-fundaciones-con-ese-fin/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -126,7 +126,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“La actual Constitución del 80 en ninguna parte menciona la discapacidad, accesibilidad, inclusión o diversidad. En cambio, en la Nueva Constitución, en sus principios detalla que Chile es un Estado plurinacional, intercultural, regional y su democracia es inclusiva y paritaria”,",
+    "claim": "“La actual Constitución del 80 en ninguna parte menciona la discapacidad, accesibilidad, inclusión o diversidad. En cambio, en la Nueva Constitución, en sus principios detalla que Chile es un Estado plurinacional, intercultural, regional y su democracia es inclusiva y paritaria”,",
     "url": "https://factchecking.cl/user-review/la-constitucion-vigente-no-menciona-los-conceptos-de-discapacidad-accesibilidad-inclusion-o-diversidad-pero-si-lo-hace-la-actual-legislacion-2/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -144,7 +144,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Si usted se pregunta qué pasará con sus ahorros actuales, nada. Nadie los tocará”, Maitén Montenegro franja del Apruebo x Chile.",
+    "claim": "“Si usted se pregunta qué pasará con sus ahorros actuales, nada. Nadie los tocará”, Maitén Montenegro franja del Apruebo x Chile.",
     "url": "https://factchecking.cl/user-review/de-ganar-el-apruebo-futuro-de-los-ahorros-previsionales-dependera-de-nueva-legislacion/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -161,7 +161,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Primero que nada, el agua a nadie le ha faltado. Chile es uno de los países que tiene más agua potable a nivel mundial (...). Los agricultores queremos seguridad a la hora de sembrar. Porque mañana puede salir este grupito que le pone color sobre la sequedad del agua; y oye no podi sembrar porque el agua está ...\"",
+    "claim": "“Primero que nada, el agua a nadie le ha faltado. Chile es uno de los países que tiene más agua potable a nivel mundial (...). Los agricultores queremos seguridad a la hora de sembrar. Porque mañana puede salir este grupito que le pone color sobre la sequedad del agua; y oye no podi sembrar porque el agua está ...\"",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-asegura-la-seguridad-para-sembrar-y-prioriza-el-uso-y-disponibilidad-del-agua-para-las-personas-y-ecosistemas/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -179,7 +179,7 @@
     "preference": "neutral"
   },
   {
-    "fact": "\"La educación sexual integral ha tenido terribles resultados en todos los países en los que ha sido implementada\", Lucas Gonzalez, del canal de YouTube DESapruebo.",
+    "claim": "\"La educación sexual integral ha tenido terribles resultados en todos los países en los que ha sido implementada\", Lucas Gonzalez, del canal de YouTube DESapruebo.",
     "url": "https://factchecking.cl/user-review/es-falso-que-la-educacion-sexual-integral-han-tenido-un-impacto-negativo-en-los-paises-que-se-ha-aplicado/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -202,7 +202,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Si hay algún robo u homicidio eso se va a juzgar en Tribunales Penales como ha sido siempre, artículo 322 de la nueva Constitución”, Partido Socialista, Franja televisiva del 8 de agosto de 2022.",
+    "claim": "“Si hay algún robo u homicidio eso se va a juzgar en Tribunales Penales como ha sido siempre, artículo 322 de la nueva Constitución”, Partido Socialista, Franja televisiva del 8 de agosto de 2022.",
     "url": "https://factchecking.cl/user-review/de-aprobarse-la-nueva-constitucion-sistemas-de-justicia-seran-normados-por-legislacion-posterior/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -220,7 +220,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Los privados no pueden crear establecimientos educacionales con un proyecto educativo libre, sólo el Estado y los pueblos originarios, ¿Por qué tendría un pueblo originario ese derecho y no así el resto de la ciudadanía? Lea el artículo 36, incisos 1 y 5”, ima...\"",
+    "claim": "“Los privados no pueden crear establecimientos educacionales con un proyecto educativo libre, sólo el Estado y los pueblos originarios, ¿Por qué tendría un pueblo originario ese derecho y no así el resto de la ciudadanía? Lea el artículo 36, incisos 1 y 5”, ima...\"",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-si-le-permite-a-los-privados-la-creacion-de-establecimientos-educacionales/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -238,7 +238,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Con la Nueva Constitución se garantiza una salud y bienestar que no dependa de tu bolsillo. Por un Sistema Nacional de Salud donde atenderse no sea un lujo y ninguna libertad se pierda. Artículo 44.”, publicación en redes sociales del Apruebo.",
+    "claim": "“Con la Nueva Constitución se garantiza una salud y bienestar que no dependa de tu bolsillo. Por un Sistema Nacional de Salud donde atenderse no sea un lujo y ninguna libertad se pierda. Artículo 44.”, publicación en redes sociales del Apruebo.",
     "url": "https://factchecking.cl/user-review/la-constitucion-propuesta-garantiza-el-libre-e-igualitario-acceso-al-sistema-de-salud-pero-sera-la-legislacion-futura-la-que-definira-como/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -256,7 +256,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“A la hora de votar hay ciudadanos de primera y segunda clase. Muchos de nuestros policías, Fuerzas Armadas y gendarmes no pueden ejercer su derecho a voto porque sirven a la Patria ese día. Debemos darles facilidades para que puedan sufragar!”, diputado Cristián Araya en Twitter.",
+    "claim": "“A la hora de votar hay ciudadanos de primera y segunda clase. Muchos de nuestros policías, Fuerzas Armadas y gendarmes no pueden ejercer su derecho a voto porque sirven a la Patria ese día. Debemos darles facilidades para que puedan sufragar!”, diputado Cristián Araya en Twitter.",
     "url": "https://factchecking.cl/user-review/las-fuerzas-armadas-tienen-derecho-a-voto-al-igual-que-los-otros-ciudadanos/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -274,7 +274,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Cualquier modificación a la constitución deberá ser sometida a la aprobación de los pueblos indígenas\", video en Tik Tok.",
+    "claim": "\"Cualquier modificación a la constitución deberá ser sometida a la aprobación de los pueblos indígenas\", video en Tik Tok.",
     "url": "https://factchecking.cl/user-review/consultas-indigenas-no-serian-vinculantes-para-reformas-constitucionales-pero-la-ley-decidira-sobre-su-incidencia-en-nuevos-procesos-constituyentes/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -292,7 +292,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Los bienes como el aire, el agua o una playa no pueden ser comprados”, franja televisiva  Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo Bío Bío",
+    "claim": "“Los bienes como el aire, el agua o una playa no pueden ser comprados”, franja televisiva  Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo Bío Bío",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-establece-el-agua-y-el-aire-como-bienes-inapropiables-incluyendo-las-playas-del-pais/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -310,7 +310,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Van a terminar con las Isapres”, Franja ciudadana por el Rechazo, 10 de agosto de 2022.",
+    "claim": "“Van a terminar con las Isapres”, Franja ciudadana por el Rechazo, 10 de agosto de 2022.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-permite-que-prestadores-publicos-y-privados-formen-parte-del-sistema-de-salud/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -334,7 +334,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“(...) la Derecha lo declaró Inconstitucional: 1) 40 hrs Semanales. 2) Atribuciones para Sernac. 3) Regulación precio medicamentos. 4) Fondo para financiar Au...\"",
+    "claim": "“(...) la Derecha lo declaró Inconstitucional: 1) 40 hrs Semanales. 2) Atribuciones para Sernac. 3) Regulación precio medicamentos. 4) Fondo para financiar Au...\"",
     "url": "https://factchecking.cl/user-review/proyectos-de-ley-de-las-40-horas-atribuciones-al-sernac-precio-de-medicamentos-fondos-para-el-auge-y-fin-al-lucro-han-sido-considerados-inconstitucionales-por-parte-de-la-derecha/",
     "verification": "inaccurate",
     "verificationRaw": "Impreciso",
@@ -352,7 +352,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Chao educación particular subvencionada. Más de la mitad de estudiantes está en colegios particulares subvencionados y se pretende hacer desaparecer este modelo(...). Lea el artículo 36 y note como no hay cabida a este sistema”, cuenta de",
+    "claim": "“Chao educación particular subvencionada. Más de la mitad de estudiantes está en colegios particulares subvencionados y se pretende hacer desaparecer este modelo(...). Lea el artículo 36 y note como no hay cabida a este sistema”, cuenta de",
     "url": "https://factchecking.cl/user-review/la-nueva-constitucion-no-elimina-la-existencia-de-los-colegios-particulares-subvencionados/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -370,7 +370,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Que el 1% del país se lleve el 30% del Producto Interno Bruto para la casa todos los años, será INCONSTITUCIONAL”, ex convencional por Magallanes, Mauricio Daza.",
+    "claim": "\"Que el 1% del país se lleve el 30% del Producto Interno Bruto para la casa todos los años, será INCONSTITUCIONAL”, ex convencional por Magallanes, Mauricio Daza.",
     "url": "https://factchecking.cl/user-review/bajo-la-propuesta-de-constitucion-no-seria-inconstitucional-que-el-1-del-pais-posea-la-mitad-del-pib-del-pais/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -388,7 +388,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"Establece un nuevo sistema de salud obligatorio y si es que alguien se quiere atender de manera privada deberá pagar dos veces, tanto el obligatorio como el sistema privado de salud\", Cristian Daly, periodista y actual concejal de Lo Barnechea, TikTok.",
+    "claim": "\"Establece un nuevo sistema de salud obligatorio y si es que alguien se quiere atender de manera privada deberá pagar dos veces, tanto el obligatorio como el sistema privado de salud\", Cristian Daly, periodista y actual concejal de Lo Barnechea, TikTok.",
     "url": "https://factchecking.cl/user-review/la-ley-definira-la-forma-en-que-se-integraran-los-prestadores-de-salud-publicos-y-privados/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -406,7 +406,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Perdón que me meta, pero soy estudiante de Derecho y la nueva Constitución es la única en el mundo con la espiritualidad como derecho fundamental, Art. 9”, franja electoral del Apruebo.",
+    "claim": "“Perdón que me meta, pero soy estudiante de Derecho y la nueva Constitución es la única en el mundo con la espiritualidad como derecho fundamental, Art. 9”, franja electoral del Apruebo.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-no-es-la-primera-en-incorporar-la-espiritualidad-como-un-derecho-fundamental/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -424,7 +424,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“En el borrador de la nueva constitución, en el artículo 17, habla sobre una soberanía alimentaria. ¿Esto qué quiere decir? Que el Estado se va a hacer cargo de producir y distribuir alimentos para supuestamente garantizar una alimentación sana y justa. En otras palabras, quiere decir que el Estado se va a ha...\"",
+    "claim": "“En el borrador de la nueva constitución, en el artículo 17, habla sobre una soberanía alimentaria. ¿Esto qué quiere decir? Que el Estado se va a hacer cargo de producir y distribuir alimentos para supuestamente garantizar una alimentación sana y justa. En otras palabras, quiere decir que el Estado se va a ha...\"",
     "url": "https://factchecking.cl/user-review/la-soberania-alimentaria-que-garantiza-la-propuesta-constitucional-no-significa-que-el-estado-se-hara-cargo-de-los-alimentos-a-los-que-puedes-o-no-acceder/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -442,7 +442,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Gary, lucho mena, barticcioto, jean bose, el queno mena......y nada en los medios, pero el pinilla una semana de titulares en todos los medios (sic). Apruebo💪\", publicación en Twitter.",
+    "claim": "\"Gary, lucho mena, barticcioto, jean bose, el queno mena......y nada en los medios, pero el pinilla una semana de titulares en todos los medios (sic). Apruebo💪\", publicación en Twitter.",
     "url": "https://factchecking.cl/user-review/con-la-misma-cobertura-mediatica-pinilla-rechaza-lucho-y-queno-mena-aprueban-y-gary-medel-no-ha-manifestado-publicamente-su-opcion-para-el-plebiscito-de-salida/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -459,7 +459,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"Sabías que desde 2010, con el aumento del terrorismo, la superficie de la tierra sembrada con trigo ha disminuido un 44% en La Araucanía. Si la falta de seguridad persiste, no es de extrañar que la producción de harina y pan no llegue ...\"",
+    "claim": "\"Sabías que desde 2010, con el aumento del terrorismo, la superficie de la tierra sembrada con trigo ha disminuido un 44% en La Araucanía. Si la falta de seguridad persiste, no es de extrañar que la producción de harina y pan no llegue ...\"",
     "url": "https://factchecking.cl/user-review/aumento-de-precio-de-los-fertilizantes-sequia-compra-de-tierras-y-hechos-de-violencia-algunas-de-las-razones-de-la-disminucion-de-tierra-sembrada-con-trigo-en-la-araucania/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -477,7 +477,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Nueva Constitución reconoce por primera vez en 170 años a Bomberos como Organismo del Estado”, @nomasafp_Chile en Instagram.",
+    "claim": "“Nueva Constitución reconoce por primera vez en 170 años a Bomberos como Organismo del Estado”, @nomasafp_Chile en Instagram.",
     "url": "https://factchecking.cl/user-review/propuesta-de-nueva-constitucion-no-establece-que-bomberos-de-chile-sera-un-organismo-del-estado/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -495,7 +495,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Derecho de propiedad: Fin a la casa propia”, panfleto del Rechazo.",
+    "claim": "“Derecho de propiedad: Fin a la casa propia”, panfleto del Rechazo.",
     "url": "https://factchecking.cl/user-review/el-derecho-de-propiedad-de-la-propuesta-constitucional-no-implica-el-fin-a-la-casa-propia/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -513,7 +513,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“(La propuesta de nueva Constitución) asegura el acceso universal a la educación de calidad en todos sus niveles. Estudiar ya no va a ser un privilegio de la elite. Esto es un paso hacia adelante, hacia el desarrollo, hacia la obtención de empleos de calidad”,  Natalia Piergentili y Vlado Mirosevic en franja ...\"",
+    "claim": "“(La propuesta de nueva Constitución) asegura el acceso universal a la educación de calidad en todos sus niveles. Estudiar ya no va a ser un privilegio de la elite. Esto es un paso hacia adelante, hacia el desarrollo, hacia la obtención de empleos de calidad”,  Natalia Piergentili y Vlado Mirosevic en franja ...\"",
     "url": "https://factchecking.cl/user-review/la-propuesta-constitucional-garantiza-el-acceso-universal-a-la-educacion-pero-no-asegura-la-calidad-ni-buenos-empleos/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -531,7 +531,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"Sabía usted que Piñera es el único ex Presidente que rechazó el pago de la pensión vitalicia\", comentario viral usuario en Twitter.",
+    "claim": "\"Sabía usted que Piñera es el único ex Presidente que rechazó el pago de la pensión vitalicia\", comentario viral usuario en Twitter.",
     "url": "https://factchecking.cl/user-review/sebastian-pinera-si-recibe-su-dieta-vitalicia-como-ex-presidente/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -549,7 +549,7 @@
     "preference": "neutral"
   },
   {
-    "fact": "“En la actual Constitución un animal es lo mismo que un objeto. Pero para la nueva Constitución los animales tienen derechos”, Gerardo Espíndola, alcalde de Arica, Partido Liberal.",
+    "claim": "“En la actual Constitución un animal es lo mismo que un objeto. Pero para la nueva Constitución los animales tienen derechos”, Gerardo Espíndola, alcalde de Arica, Partido Liberal.",
     "url": "https://factchecking.cl/user-review/la-constitucion-vigente-no-menciona-a-los-animales/",
     "verification": "inaccurate",
     "verificationRaw": "Impreciso",
@@ -567,7 +567,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Ocurre que aquí se eligieron los convencionales y se les pidió ⅔, de manera que todas las normas fueron aprobadas por ⅔, o sea bastante más que el 50%, pero es más, muchas de las normas que se han criticado, por ejemplo el derecho a propiedad, ¿por cuánto fue aprobado? 132 votos, por ejemplo la comuna au...\"",
+    "claim": "“Ocurre que aquí se eligieron los convencionales y se les pidió ⅔, de manera que todas las normas fueron aprobadas por ⅔, o sea bastante más que el 50%, pero es más, muchas de las normas que se han criticado, por ejemplo el derecho a propiedad, ¿por cuánto fue aprobado? 132 votos, por ejemplo la comuna au...\"",
     "url": "https://factchecking.cl/user-review/con-mas-de-%e2%85%94-de-los-convencionales-los-articulos-permanentes-de-la-propuesta-de-nueva-constitucion-se-aprobaron-con-117-votos-en-promedio/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -585,7 +585,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Expropiarán tus ahorros futuros, es decir, un 10% de lo que ganarás mes a mes dejará de ser tuyo y pasará a un fondo común administrado por el Estado. Si tienes 30 años, los próximo 35 años perderás el 10% de tu sueldo”, publicación realizada en una actividad de la campaña del Rechazo en Antofagasta",
+    "claim": "“Expropiarán tus ahorros futuros, es decir, un 10% de lo que ganarás mes a mes dejará de ser tuyo y pasará a un fondo común administrado por el Estado. Si tienes 30 años, los próximo 35 años perderás el 10% de tu sueldo”, publicación realizada en una actividad de la campaña del Rechazo en Antofagasta",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-constitucion-no-permite-la-expropiacion-de-ahorros-previsionales/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -603,7 +603,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Esta propuesta de Constitución elimina la iniciativa exclusiva del Presidente en materias de gasto fiscal, y además ahora las identidades territoriales podrán emitir deuda”, Emilio Peña, secretario general del Partido de la Gente en franja televisiva del...\"",
+    "claim": "“Esta propuesta de Constitución elimina la iniciativa exclusiva del Presidente en materias de gasto fiscal, y además ahora las identidades territoriales podrán emitir deuda”, Emilio Peña, secretario general del Partido de la Gente en franja televisiva del...\"",
     "url": "https://factchecking.cl/user-review/en-la-propuesta-de-constitucion-el-congreso-y-el-presidente-podran-presentar-iniciativas-de-ley-que-impliquen-gasto-fiscal-ademas-las-identidades-regionales-tendran-autonomia-financiera/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -621,7 +621,7 @@
     "preference": "reject"
   },
   {
-    "fact": "Una publicación hecha en Twitter por @...\"",
+    "claim": "Una publicación hecha en Twitter por @...\"",
     "url": "https://factchecking.cl/user-review/imagen-de-pep-guardiola-sosteniendo-bandera-a-favor-del-apruebo-corresponde-al-plebiscito-de-entrada-en-2020/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -639,7 +639,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"Finalmente hoy día estamos generando un país que posibilita las dictaduras\", Nicolás Mendoza, estudiante de Derecho, en la franja por el Rechazo.",
+    "claim": "\"Finalmente hoy día estamos generando un país que posibilita las dictaduras\", Nicolás Mendoza, estudiante de Derecho, en la franja por el Rechazo.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-constitucion-no-posee-las-condiciones-suficientes-para-posibilitar-una-dictadura-en-el-pais/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -657,7 +657,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"La nueva Constitución nos reconoce, respeta y garantiza nuestros derechos (de las mujeres). Por ejemplo, nos permitirá tener una vida libre de violencia dentro y fuera del hogar. Con medidas concretas, enfocadas en prevención, protección y reparación integral a las víctimas”, Paola Volpato franja televisiva ...\"",
+    "claim": "\"La nueva Constitución nos reconoce, respeta y garantiza nuestros derechos (de las mujeres). Por ejemplo, nos permitirá tener una vida libre de violencia dentro y fuera del hogar. Con medidas concretas, enfocadas en prevención, protección y reparación integral a las víctimas”, Paola Volpato franja televisiva ...\"",
     "url": "https://factchecking.cl/user-review/ninguna-constitucion-asegura-una-vida-libre-de-violencia/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -675,7 +675,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Si el señor Llaitul hubiese sido detenido con el nuevo texto propuesto por la constituyente, hubiese sido juzgado por la justicia de Temucuicui y probablemente liberado en minutos“, Rojo Edwards, senador y presidente del Partido Republicano.",
+    "claim": "“Si el señor Llaitul hubiese sido detenido con el nuevo texto propuesto por la constituyente, hubiese sido juzgado por la justicia de Temucuicui y probablemente liberado en minutos“, Rojo Edwards, senador y presidente del Partido Republicano.",
     "url": "https://factchecking.cl/user-review/hector-llaitul-hubiese-sido-arrestado-procesado-y-penado-de-acuerdo-a-la-ley-de-seguridad-del-estado-bajo-la-propuesta-de-nueva-constitucion/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -693,7 +693,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Con la nueva Constitución, el SERNAC no solo fiscaliza, sino que, ¡sanciona! | Protección al Consumidor (Art. 81 N°3) Antiabuso (Art. 182 N°5)”, afirmación del comando de Aprueba X Chile en la franja electoral.",
+    "claim": "“Con la nueva Constitución, el SERNAC no solo fiscaliza, sino que, ¡sanciona! | Protección al Consumidor (Art. 81 N°3) Antiabuso (Art. 182 N°5)”, afirmación del comando de Aprueba X Chile en la franja electoral.",
     "url": "https://factchecking.cl/user-review/propuesta-de-nueva-constitucion-faculta-al-sernac-a-sancionar-vulneraciones-de-derechos-del-consumidor/",
     "verification": "inaccurate",
     "verificationRaw": "Impreciso",
@@ -711,7 +711,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Nuestros ahorros no serán heredables”, Gaspar Rivas, diputado del Partido de la Gente (PDG) en Franja Televisiva.\n\n“Todo bien con mejorar las pensiones, ¿pero que no pueda dejar mi plata en herencia a mis hijos? Si es mi esfuerzo...\"",
+    "claim": "“Nuestros ahorros no serán heredables”, Gaspar Rivas, diputado del Partido de la Gente (PDG) en Franja Televisiva.\n\n“Todo bien con mejorar las pensiones, ¿pero que no pueda dejar mi plata en herencia a mis hijos? Si es mi esfuerzo...\"",
     "url": "https://factchecking.cl/user-review/la-herencia-de-los-ahorros-previsionales-dependera-de-la-ley-que-regule-el-sistema-de-pensiones-en-chile-luego-del-plebiscito/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -729,7 +729,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"En la nueva Constitución, con el derecho a vivienda digna pagarás solo el 25% de sueldo en arriendo, prefiero pasar dividiendo tire lápiz\", publicación de Facebook.",
+    "claim": "\"En la nueva Constitución, con el derecho a vivienda digna pagarás solo el 25% de sueldo en arriendo, prefiero pasar dividiendo tire lápiz\", publicación de Facebook.",
     "url": "https://factchecking.cl/user-review/no-existe-norma-que-establezca-que-con-el-derecho-a-la-vivienda-digna-pagaras-el-25-de-sueldo-en-arriendo/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -747,7 +747,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"En el Chile de la nueva Constitución, se garantiza la propiedad privada de cada persona. Lo tuyo, es tuyo [...] El derecho a propiedad está totalmente garantizado\", Franja Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo...\"",
+    "claim": "\"En el Chile de la nueva Constitución, se garantiza la propiedad privada de cada persona. Lo tuyo, es tuyo [...] El derecho a propiedad está totalmente garantizado\", Franja Aprueba x Chile, Apruebo Dignidad y Ambientalistas por el Apruebo...\"",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-si-garantiza-el-derecho-a-la-propiedad/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -765,7 +765,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Este supuesto derecho (aborto), no podría ser interferido por personas ni instituciones, con lo cual se prohíbe la objeción de conciencia personal e institucional”, folleto de  la Corporación Comunidad y Justicia.",
+    "claim": "“Este supuesto derecho (aborto), no podría ser interferido por personas ni instituciones, con lo cual se prohíbe la objeción de conciencia personal e institucional”, folleto de  la Corporación Comunidad y Justicia.",
     "url": "https://factchecking.cl/user-review/la-objecion-de-conciencia-respecto-a-la-interrupcion-del-embarazo-no-se-consagra-de-manera-literal-en-la-propuesta-de-constitucion/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -783,7 +783,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Se creará un Sistema Nacional de Educación que integrará a todos los establecimientos, incluyendo a los particulares subvencionados\", Nolfa Ibáñez Salgado, Premio Nacional de Educación, durante la Franja Televisiva del Apruebo.",
+    "claim": "\"Se creará un Sistema Nacional de Educación que integrará a todos los establecimientos, incluyendo a los particulares subvencionados\", Nolfa Ibáñez Salgado, Premio Nacional de Educación, durante la Franja Televisiva del Apruebo.",
     "url": "https://factchecking.cl/user-review/sistema-nacional-de-educacion-integraria-a-establecimientos-particulares-subvencionados/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -801,7 +801,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Donde no haya que esperar 30 años por una vivienda digna y sin hacinamiento”, Franja del Movimientos sociales por el Apruebo, 5 de agosto.",
+    "claim": "“Donde no haya que esperar 30 años por una vivienda digna y sin hacinamiento”, Franja del Movimientos sociales por el Apruebo, 5 de agosto.",
     "url": "https://factchecking.cl/user-review/el-promedio-de-espera-por-una-casa-en-chile-no-es-necesariamente-de-30-anos-como-asegura-la-franja-del-apruebo/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -819,7 +819,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"La Constitución de la Convención rechazó la propuesta de crear una defensoría para las víctimas de la delincuencia\", franja televisiva del Rechazo 11 de agosto.",
+    "claim": "\"La Constitución de la Convención rechazó la propuesta de crear una defensoría para las víctimas de la delincuencia\", franja televisiva del Rechazo 11 de agosto.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-la-creacion-de-una-defensoria-de-las-victimas-fue-rechazada-por-la-convencion-constitucional/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -837,7 +837,7 @@
     "preference": "reject"
   },
   {
-    "fact": "Franja",
+    "claim": "Franja",
     "url": "https://factchecking.cl/user-review/franja-ciudadana-x-el-rechazo-utilizo-imagenes-de-crimea-para-hablar-del-sur-de-chile/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -855,7 +855,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“¿Cómo puede ser que les estén dando más derechos a los delincuentes que a las víctimas?”, Franja del Rechazo.",
+    "claim": "“¿Cómo puede ser que les estén dando más derechos a los delincuentes que a las víctimas?”, Franja del Rechazo.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-no-le-entrega-mas-derechos-a-los-delincuentes-que-a-las-victimas/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -873,7 +873,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Los chilenos no tenemos derecho a una vivienda en la actual Constitución”, Franja del Apruebo, 8 de agosto de 2022.",
+    "claim": "“Los chilenos no tenemos derecho a una vivienda en la actual Constitución”, Franja del Apruebo, 8 de agosto de 2022.",
     "url": "https://factchecking.cl/user-review/constitucion-vigente-no-garantiza-derecho-a-la-vivienda-pero-tratados-internacionales-firmados-por-chile-si-lo-hacen/",
     "verification": "inaccurate",
     "verificationRaw": "Impreciso",
@@ -891,7 +891,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“Maduro abre su corazón y envía un cariñoso mensaje para que votes apruebo”, viral de TikTok.",
+    "claim": "“Maduro abre su corazón y envía un cariñoso mensaje para que votes apruebo”, viral de TikTok.",
     "url": "https://factchecking.cl/user-review/supuesto-mensaje-de-nicolas-maduro-apoyando-la-opcion-apruebo-es-del-ano-2018-y-no-se-refiere-al-proceso-constitucional-chileno/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -908,7 +908,7 @@
     "preference": "neutral"
   },
   {
-    "fact": "Frase: “La nueva Constitución es la única en el mundo hecha para enfrentar la crisis climática”, Franja televisiva Partido Socialista.",
+    "claim": "Frase: “La nueva Constitución es la única en el mundo hecha para enfrentar la crisis climática”, Franja televisiva Partido Socialista.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-no-es-la-unica-en-el-mundo-en-incorporar-articulos-para-combatir-el-cambio-climatico-pero-si-esta-a-la-vanguardia-mundial-en-el-tema/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -926,7 +926,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“#Rechazo #Salida artículo 67.4 restringe la libertad religiosa y de predicación”, Confamilia Chile en Instagram.",
+    "claim": "“#Rechazo #Salida artículo 67.4 restringe la libertad religiosa y de predicación”, Confamilia Chile en Instagram.",
     "url": "https://factchecking.cl/user-review/propuesta-de-nueva-constitucion-prohibe-el-lucro-en-las-entidades-religiosas-y-exige-transparencia-de-sus-bienes-pero-la-libertad-religiosa-quedaria-abierta-a-interpretaciones/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -944,7 +944,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“De aprobarse la nueva Constitución, las Fuerzas Armadas no podrán cooperar como lo han hecho en situaciones de catástrofe”, usuario de Twitter",
+    "claim": "“De aprobarse la nueva Constitución, las Fuerzas Armadas no podrán cooperar como lo han hecho en situaciones de catástrofe”, usuario de Twitter",
     "url": "https://factchecking.cl/user-review/la-cooperacion-y-disposicion-de-las-fuerzas-armadas-en-un-estado-de-catastrofe-esta-contemplada-en-la-propuesta-de-nueva-constitucion/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -967,7 +967,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Por primera vez la propuesta constitucional reconoce el papel fundamental de profesoras y profesores en la Educación\", Nolfa Ibáñez Salgado Premio Nacional de Educación durante Franja Televi...\"",
+    "claim": "\"Por primera vez la propuesta constitucional reconoce el papel fundamental de profesoras y profesores en la Educación\", Nolfa Ibáñez Salgado Premio Nacional de Educación durante Franja Televi...\"",
     "url": "https://factchecking.cl/user-review/propuesta-de-nueva-constitucion-incluye-el-reconocimiento-al-rol-fundamental-de-los-docentes-en-la-educacion/",
     "verification": "true",
     "verificationRaw": "Verdadero",
@@ -985,7 +985,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“(...)Un Sistema Nacional de Salud integrado por prestadores públicos y privados.(...) Con estos recursos tendremos más hospitales y centros de atención primaria”, Dr. Eduardo Bronstein en la Franja del Apruebo.",
+    "claim": "“(...)Un Sistema Nacional de Salud integrado por prestadores públicos y privados.(...) Con estos recursos tendremos más hospitales y centros de atención primaria”, Dr. Eduardo Bronstein en la Franja del Apruebo.",
     "url": "https://factchecking.cl/user-review/ninguna-constitucion-garantiza-mas-infraestructura/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -1003,7 +1003,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"¿Sabes cuántas familias no tienen casa propia? 641.421. En el Chile del mañana se castigará ¡pero en serio! A quienes jueguen con el precio de arriendos y compras de suelo y casas\", sin atribución.",
+    "claim": "\"¿Sabes cuántas familias no tienen casa propia? 641.421. En el Chile del mañana se castigará ¡pero en serio! A quienes jueguen con el precio de arriendos y compras de suelo y casas\", sin atribución.",
     "url": "https://factchecking.cl/user-review/la-propuesta-constitucional-no-establece-sanciones-relacionados-con-el-derecho-a-la-vivienda/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -1020,7 +1020,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Hoy, un condenado por más de 3 años y 1 día no puede votar. Con la nueva Constitución, sí lo hará. Y podrá ser candidato”, publicación de Instagram de @rechazo.ciudadano.",
+    "claim": "“Hoy, un condenado por más de 3 años y 1 día no puede votar. Con la nueva Constitución, sí lo hará. Y podrá ser candidato”, publicación de Instagram de @rechazo.ciudadano.",
     "url": "https://factchecking.cl/user-review/con-el-proyecto-de-nueva-constitucion-propuesta-dependera-de-la-legislacion-posterior-si-condenados-podran-optar-a-cargos-publicos/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -1037,7 +1037,7 @@
     "preference": "reject"
   },
   {
-    "fact": "El 29 de julio, la usuaria de Twitter @jennette42 difundió la imagen de un grupo de personas manifestándose a favor del Apruebo en el Templo Votivo de Maipú. Tras conversar con la directora de la intervención y hacer una búsqueda inversa, el equipo de FactChecking.cl clasificó la imagen como falsa.\n\nIm...\"",
+    "claim": "El 29 de julio, la usuaria de Twitter @jennette42 difundió la imagen de un grupo de personas manifestándose a favor del Apruebo en el Templo Votivo de Maipú. Tras conversar con la directora de la intervención y hacer una búsqueda inversa, el equipo de FactChecking.cl clasificó la imagen como falsa.\n\nIm...\"",
     "url": "https://factchecking.cl/user-review/es-falsa-la-imagen-de-la-yeguada-latinoamericana-manifestandose-por-el-apruebo-en-el-templo-votivo-de-maipu/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -1055,7 +1055,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Para eliminar las iglesias de las calles. Sí apruebo de salida. Nueva Constitución”, sin autoría.",
+    "claim": "“Para eliminar las iglesias de las calles. Sí apruebo de salida. Nueva Constitución”, sin autoría.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-no-permite-eliminar-las-iglesias/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -1072,7 +1072,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“¿Y mi casa nueva será del Estado? Eso es lo que ofrece el borrador constitucional. No es lo que yo quería. El sueño de la casa propia quedará en eso, un sueño. Derecho a una vivienda sí, pero esta será del Estado”, video en YouTube de Otra Constitución.",
+    "claim": "“¿Y mi casa nueva será del Estado? Eso es lo que ofrece el borrador constitucional. No es lo que yo quería. El sueño de la casa propia quedará en eso, un sueño. Derecho a una vivienda sí, pero esta será del Estado”, video en YouTube de Otra Constitución.",
     "url": "https://factchecking.cl/user-review/el-derecho-a-la-vivienda-esta-consagrado-en-la-propuesta-de-nueva-constitucion-pero-esto-no-significa-que-las-casas-seran-del-estado/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -1090,7 +1090,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Cualquier idea no podrá ser convertida en patente. Esta Constitución excluyó explícitamente el derecho de propiedad industrial  a pesar de que se insistió en que debía ser incluido\" (en relación al artículo 95 de la propuesta de nueva Constitución), señala Martín Altamirano de Fundación para el Progre...\"",
+    "claim": "\"Cualquier idea no podrá ser convertida en patente. Esta Constitución excluyó explícitamente el derecho de propiedad industrial  a pesar de que se insistió en que debía ser incluido\" (en relación al artículo 95 de la propuesta de nueva Constitución), señala Martín Altamirano de Fundación para el Progre...\"",
     "url": "https://factchecking.cl/user-review/las-patentes-seguiran-siendo-reguladas-por-ley-bajo-la-nueva-constitucion/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -1108,7 +1108,7 @@
     "preference": "reject"
   },
   {
-    "fact": "\"Si se aprueba la nueva Constitución, Jaime tendrá derecho a un sueldo justo. Para que no tenga que tener dos pegas. Para que no tenga que llenarse de créditos (...)”, franja televisiva Apruebo x Chile.",
+    "claim": "\"Si se aprueba la nueva Constitución, Jaime tendrá derecho a un sueldo justo. Para que no tenga que tener dos pegas. Para que no tenga que llenarse de créditos (...)”, franja televisiva Apruebo x Chile.",
     "url": "https://factchecking.cl/user-review/el-derecho-a-un-sueldo-justo-no-garantiza-suficiencia-para-llegar-a-fin-de-mes-ni-impide-la-posibilidad-de-tener-mas-de-un-trabajo/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -1126,7 +1126,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“La actual Constitución permite al presidente decretar Estado de Emergencia para situaciones de desórdenes públicos fuera de control. La nueva Constitución lo elimina, evitando la posible intervención de las Fuerzas Armadas”, publicación en Instagram de @100razonespararechazar.",
+    "claim": "“La actual Constitución permite al presidente decretar Estado de Emergencia para situaciones de desórdenes públicos fuera de control. La nueva Constitución lo elimina, evitando la posible intervención de las Fuerzas Armadas”, publicación en Instagram de @100razonespararechazar.",
     "url": "https://factchecking.cl/user-review/la-ausencia-del-estado-de-emergencia-en-el-borrador-no-implicaria-el-fin-de-la-intervencion-de-las-ff-aa-ante-desordenes-publicos/",
     "verification": "misleading",
     "verificationRaw": "Engañoso",
@@ -1144,7 +1144,7 @@
     "preference": "reject"
   },
   {
-    "fact": "“Porque con la nueva Constitución ningún político corrupto va a poder llegar al poder. Y la colusión va a ser imposible\", franja televisiva por el Apruebo, Partido S...\"",
+    "claim": "“Porque con la nueva Constitución ningún político corrupto va a poder llegar al poder. Y la colusión va a ser imposible\", franja televisiva por el Apruebo, Partido S...\"",
     "url": "https://factchecking.cl/user-review/nueva-constitucion-no-evitara-la-llegada-de-la-corrupcion-al-poder/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -1162,7 +1162,7 @@
     "preference": "approve"
   },
   {
-    "fact": "\"Primera vez en 32 años que Contraloría investiga a La Moneda por intervencionismo electoral\", Facebook Ir MoFe.",
+    "claim": "\"Primera vez en 32 años que Contraloría investiga a La Moneda por intervencionismo electoral\", Facebook Ir MoFe.",
     "url": "https://factchecking.cl/user-review/no-es-primera-vez-que-contraloria-investiga-a-un-gobierno-tras-ser-acusado-de-intervencionismo-electoral/",
     "verification": "false",
     "verificationRaw": "Falso",
@@ -1179,7 +1179,7 @@
     "preference": "neutral"
   },
   {
-    "fact": "“Nadie podrá coludirse sin un castigo real. No más clases de ética”, publicación en Facebook de Apruebo Dignidad.",
+    "claim": "“Nadie podrá coludirse sin un castigo real. No más clases de ética”, publicación en Facebook de Apruebo Dignidad.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-si-incluye-castigos-para-la-colusion-pero-corresponde-al-legislativo-definir-las-penas/",
     "verification": "creative",
     "verificationRaw": "Se puso creativ@",
@@ -1196,7 +1196,7 @@
     "preference": "approve"
   },
   {
-    "fact": "“No podrán optar a cargos públicos personas condenadas por delitos sexuales, violencia intrafamiliar, corrupción o fraude al fisco”, volante repartido por el Comando de Movimientos Sociales.",
+    "claim": "“No podrán optar a cargos públicos personas condenadas por delitos sexuales, violencia intrafamiliar, corrupción o fraude al fisco”, volante repartido por el Comando de Movimientos Sociales.",
     "url": "https://factchecking.cl/user-review/la-propuesta-de-nueva-constitucion-especifica-delitos-por-los-que-no-se-puede-optar-a-cargos-publicos/",
     "verification": "true",
     "verificationRaw": "Verdadero",
