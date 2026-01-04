@@ -5,6 +5,7 @@ import VerificationTooltip from "../VerificationTooltip";
 import { rawSourceMap } from "../../constants/sources";
 import { parseTime, readableTime } from "../../util/time";
 import { getSource } from "../../util/general";
+import { rawPreferenceMap } from "../../constants/preferences";
 
 import type { Claim } from "../../types/claims";
 
@@ -43,7 +44,7 @@ function Claims({ claims }: ClaimsProps) {
                   {claim.date == null
                     ? "fecha desconocida"
                     : readableTime(parseTime(claim.date!)!)}
-                  )
+                  ) - Opción {rawPreferenceMap[claim.preference]}
                 </p>
               </div>
             </div>

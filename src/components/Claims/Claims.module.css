@@ -48,6 +48,10 @@
   gap: var(--space-2xs);
 }
 
+.claimWrapper .verificationWrapper p {
+  text-align: center;
+}
+
 .claimWrapper .verificationWrapper img {
   width: var(--space-3xl);
   height: var(--space-3xl);

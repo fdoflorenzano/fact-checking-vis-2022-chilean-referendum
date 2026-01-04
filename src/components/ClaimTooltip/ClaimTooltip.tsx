@@ -12,6 +12,7 @@ import Avatar from "../Avatar";
 import { rawSourceMap } from "../../constants/sources";
 import { getSource } from "../../util/general";
 import { parseTime, readableTime } from "../../util/time";
+import { rawPreferenceMap } from "../../constants/preferences";
 
 import css from "./ClaimTooltip.module.css";
 
@@ -35,12 +36,12 @@ function ClaimTooltip({ claim, children }: ClaimTooltipProps) {
                 Afirmación <strong>#{claim.index + 1}</strong> sobre{" "}
                 <strong className="emphasisText"> {claim.categoryRaw}</strong>{" "}
               </p>
-              <p className="source">
+              <p className={css.source}>
                 {rawSourceMap[getSource(claim)]} (
                 {claim.date == null
                   ? "fecha desconocida"
                   : readableTime(parseTime(claim.date!)!)}
-                )
+                ) - Opción {rawPreferenceMap[claim.preference]}
               </p>
             </div>
 
