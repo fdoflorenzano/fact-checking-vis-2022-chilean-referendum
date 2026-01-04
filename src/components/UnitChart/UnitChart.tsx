@@ -82,7 +82,8 @@ function UnitChart({
                         window.scrollTo({
                           top:
                             (div?.getBoundingClientRect().top ?? 0) +
-                            window.scrollY,
+                            window.scrollY +
+                            -32,
                           behavior: "smooth",
                         });
                         onScroll("verificationVis");
@@ -152,7 +153,8 @@ function UnitChart({
                         window.scrollTo({
                           top:
                             (div?.getBoundingClientRect().top ?? 0) +
-                            window.scrollY,
+                            window.scrollY +
+                            -32,
                           behavior: "smooth",
                         });
                         onScroll("sourceVis");
@@ -222,7 +224,8 @@ function UnitChart({
                         window.scrollTo({
                           top:
                             (div?.getBoundingClientRect().top ?? 0) +
-                            window.scrollY,
+                            window.scrollY +
+                            -32,
                           behavior: "smooth",
                         });
                         onScroll("preferenceVis");

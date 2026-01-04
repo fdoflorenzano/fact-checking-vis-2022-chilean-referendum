@@ -13,12 +13,12 @@ function BackToTopButton({ itemToScrollId, onScroll }: BackToTopButtonProps) {
       const div = document.getElementById(itemToScrollId);
 
       window.scrollTo({
-        top: (div?.getBoundingClientRect().top ?? 0) + window.scrollY,
+        top: (div?.getBoundingClientRect().top ?? 0) + window.scrollY - 32,
         behavior: "smooth",
       });
     } else {
       window.scrollTo({
-        top: 0,
+        top: 32,
         behavior: "smooth",
       });
     }

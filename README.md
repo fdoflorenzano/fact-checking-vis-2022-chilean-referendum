@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# Visualización de Factchecking Plebiscito de Salida 2022
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un ejercicio de visualización y diseño, aplicado al trabajo realizado por [Factchecking.cl](https://factchecking.cl), en particular aplicado para el [Plebiscito de Salida 2022](https://factchecking.cl/plebiscito-de-salida-2022/verificaciones/).
 
-Currently, two official plugins are available:
+Al consumir las verificaciones de Factchecking a través de su página web tuve un par de dificultades. Este proyecto busca mejorar la experiencia de consumir las verificaciones realizadas a través de visualización de datos y re-diseño de información. Las dificultades que resaltaron fueron:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Es difícil saber rápidamente el resultado de verificaciones individuales, ya que el uso de colores constante en avatares y de fondo hace necesario leer el texto cada vez.
+- No se incluyen datos importantes con cada verificación, como fuente de publicación original, ni una respuesta a porqué la afirmación fue catalogada como tal. Se puede entender esto como una invitación a leer el artículo completo, pero creo es posible hacerlo de forma limitada.
+- Las estadísticas al inicio de la página son muy superficiales y son solo numéricas. No permiten apreciar la totalidad de trabajo realizado, ni poder dimensionar las proporciones de resultados de verificación.
 
-## React Compiler
+Todo lo anterior se dice desde un punto de vista constructivo, desde alguien que respeta el trabajo y misión de la plataforma. Todos los datos incluidos aquí fueron extraídos de la web de Factchecking, y manualmente verificados por mi. Esto último para aclarar que es muy posible aparezcan errores, ya sean manuales o que vienen de los datos originales.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologías
 
-## Expanding the ESLint configuration
+Este proyecto fue inicializado con un _template_ de React + Vite + TS. Se agregaron `d3` y algunas dependencias de `@radix-ui` para elevar rápidamente la usabilidad y posibilidades de visualización en el _front-end_.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+También se utilizaron una serie de scripts para procesar los datos a visualizar, que utilizan `cheerio` para web scraping y `@google/genai` para extraer algunos aspectos que luego fueron verificados manualmente.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Datos
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Se realizaron los siguientes pasos:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Correr `npm run data:scrape` para navegar las verificaciones del proyecto de interés y extraer el HTML de cada artículo.\
+- Correr `npm run data:extend` para procesar los HTML extraídos y analizar el contenido con Gemini para extraer y determinar ciertos atributos no siempre explícitamente mencionados, como: fecha de publicación de afirmación y fuente de publicación.
+- Luego se procesaron manualmente los valores extraídos, corrigiendo varios y extendiendo el valor de fuente de publicación. A su vez se agrega manualmente el valor de preferencia de opción para el plebiscito.
+- Finalmente correr `npm run data:clean` que simplemente filtra los datos y atributos que efectivamente se usan finalmente por cada verificación/afirmación.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Front-end
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Para ejecutar/construir la aplicación localmente, se pueden usar los comandos esperables: `npm run dev` y `npm run build`.

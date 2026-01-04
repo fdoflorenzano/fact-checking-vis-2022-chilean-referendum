@@ -7,6 +7,7 @@ import BackToTopButton from "./components/BackToTopButton";
 import Layout from "./components/Layout";
 import Anchor from "./components/Anchor";
 import Claims from "./components/Claims";
+import UnitChart from "./components/UnitChart";
 
 import { verificationValues } from "./constants/verifications";
 import { sourceValues } from "./constants/sources";
@@ -15,7 +16,6 @@ import { preferenceValues } from "./constants/preferences";
 import css from "./App.module.css";
 
 import data from "../data/cleaned-claims.json";
-import UnitChart from "./components/UnitChart";
 
 const TOTAL_CLAIMS = data.length;
 

@@ -29,6 +29,7 @@
 :root {
   --primary-color: #3a9bdf;
   --emphasis-background: #1c1c1c;
+  --gray: #bbbbbb;
 
   --space-4xs: 2px;
   --space-3xs: 4px;

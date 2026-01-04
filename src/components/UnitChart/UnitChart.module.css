@@ -14,7 +14,7 @@
 }
 
 .separator {
-  background-color: gray;
+  background-color: var(--gray);
   height: 1px;
   width: 100%;
 }
@@ -22,7 +22,7 @@
 .chart {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xs);
+  gap: var(--space-xs);
 }
 
 .chart > p {

@@ -11,10 +11,9 @@
   display: flex;
   gap: var(--space-2xl);
   justify-content: space-between;
-  border: 1px solid gray;
+  border: 1px solid var(--gray);
   padding: var(--space-m);
   border-radius: var(--border-radius);
-  border-color: var(--primary-color);
 }
 
 .header {
