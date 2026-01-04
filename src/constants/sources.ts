@@ -16,7 +16,7 @@ export const sourceExplainers: Record<string, string> = {
   TikTok:
     "Afirmación analizada se publicó originalmente en la plataforma social TikTok.",
   Twitter:
-    "Afirmación analizada se publicó originalmente en la plataforma social X (llamada entonces, Twittwe).",
+    "Afirmación analizada se publicó originalmente en la plataforma social X (llamada entonces, Twitter).",
   YouTube:
     "Afirmación analizada se publicó originalmente en la plataforma web YouTube.",
   Facebook:
